@@ -1,0 +1,143 @@
+// =============================================================
+//  Vimovies — Design Tokens (variables.scss)
+//  Fuente de verdad para colores, tipografía, radios y espaciado.
+//  Basado en el tema del mockup (blue #2563EB, amber #D97706).
+// =============================================================
+
+// -------------------------------------------------------------
+//  1. Paleta base
+// -------------------------------------------------------------
+// Neutros
+$color-background:        #fafafa;
+$color-foreground:        #101828;
+$color-card:              #ffffff;
+$color-card-foreground:   #101828;
+
+// Marca — azul primario
+$color-primary:           #2563eb;
+$color-primary-hover:     #1d4ed8;
+$color-primary-foreground:#ffffff;
+$color-primary-soft:      #eff4ff;
+
+// Secundario / superficies suaves
+$color-secondary:         #f2f4f7;
+$color-secondary-foreground: #344054;
+
+// Muted (texto tenue, fondos sutiles)
+$color-muted:             #f4f5f7;
+$color-muted-foreground:  #667085;
+
+// Accent
+$color-accent:            #eff4ff;
+$color-accent-foreground: #1d4ed8;
+
+// Warm — ámbar para alertas / causas
+$color-warm:              #d97706;
+$color-warm-foreground:   #ffffff;
+$color-warm-soft:         #fef6e7;
+
+// Estados
+$color-success:           #16a34a;
+$color-destructive:       #dc2626;
+
+// Bordes / inputs / focus ring
+$color-border:            #e7e9ee;
+$color-input:             #e7e9ee;
+$color-ring:              #2563eb;
+
+// -------------------------------------------------------------
+//  2. Mapa de colores (para iterar/temar)
+// -------------------------------------------------------------
+$colors: (
+  "background":  $color-background,
+  "foreground":  $color-foreground,
+  "card":        $color-card,
+  "primary":     $color-primary,
+  "primary-soft":$color-primary-soft,
+  "secondary":   $color-secondary,
+  "muted":       $color-muted,
+  "accent":      $color-accent,
+  "warm":        $color-warm,
+  "warm-soft":   $color-warm-soft,
+  "success":     $color-success,
+  "destructive": $color-destructive,
+  "border":      $color-border,
+);
+
+// -------------------------------------------------------------
+//  3. Tipografía
+// -------------------------------------------------------------
+$font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system, sans-serif;
+
+// Escala de tamaños
+$text-xs:   0.75rem;   // 12px
+$text-sm:   0.875rem;  // 14px
+$text-base: 1rem;      // 16px
+$text-lg:   1.125rem;  // 18px
+$text-xl:   1.25rem;   // 20px
+$text-2xl:  1.5rem;    // 24px
+$text-3xl:  1.875rem;  // 30px
+$text-4xl:  2.25rem;   // 36px
+$text-5xl:  3rem;      // 48px
+
+// Pesos
+$font-normal:   400;
+$font-medium:   500;
+$font-semibold: 600;
+$font-bold:     700;
+
+// Altura de línea
+$leading-tight:   1.2;
+$leading-snug:    1.35;
+$leading-normal:  1.5;
+$leading-relaxed: 1.6;
+
+// -------------------------------------------------------------
+//  4. Radios de borde
+// -------------------------------------------------------------
+$radius:     0.75rem;              // 12px — base
+$radius-sm:  calc(#{$radius} * 0.6);  // ~7px
+$radius-md:  calc(#{$radius} * 0.8);  // ~10px
+$radius-lg:  $radius;                 // 12px
+$radius-xl:  calc(#{$radius} * 1.4);  // ~17px
+$radius-2xl: calc(#{$radius} * 1.8);  // ~22px
+$radius-full: 9999px;
+
+// -------------------------------------------------------------
+//  5. Espaciado (escala 4px)
+// -------------------------------------------------------------
+$space-1:  0.25rem;  // 4px
+$space-2:  0.5rem;   // 8px
+$space-3:  0.75rem;  // 12px
+$space-4:  1rem;     // 16px
+$space-5:  1.25rem;  // 20px
+$space-6:  1.5rem;   // 24px
+$space-8:  2rem;     // 32px
+$space-10: 2.5rem;   // 40px
+$space-12: 3rem;     // 48px
+$space-16: 4rem;     // 64px
+
+// -------------------------------------------------------------
+//  6. Sombras
+// -------------------------------------------------------------
+$shadow-sm: 0 1px 2px rgba(16, 24, 40, 0.05);
+$shadow-md: 0 4px 12px rgba(16, 24, 40, 0.08);
+$shadow-lg: 0 12px 32px rgba(16, 24, 40, 0.10);
+
+// -------------------------------------------------------------
+//  7. Breakpoints (mobile-first)
+// -------------------------------------------------------------
+$bp-sm:  640px;
+$bp-md:  768px;
+$bp-lg:  1024px;
+$bp-xl:  1280px;
+
+// Contenedor máximo del layout
+$container-max: 1120px;
+
+// -------------------------------------------------------------
+//  8. Transiciones
+// -------------------------------------------------------------
+$transition-fast: 150ms ease;
+$transition-base: 200ms ease;
+$transition-slow: 300ms ease;

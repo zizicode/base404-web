@@ -1,0 +1,53 @@
+@use "../../styles/variables" as v;
+@use "../../styles/mixins" as m;
+
+.page {
+  @include m.flex(column, center, center, v.$space-6);
+  min-height: 60vh;
+  padding: v.$space-16 v.$space-4;
+  text-align: center;
+}
+
+.badge {
+  display: inline-block;
+  padding: v.$space-1 v.$space-4;
+  border-radius: v.$radius-full;
+  background-color: v.$color-primary-soft;
+  color: v.$color-primary;
+  font-size: v.$text-sm;
+  font-weight: v.$font-semibold;
+  margin-bottom: v.$space-4;
+}
+
+.title {
+  font-size: v.$text-3xl;
+  font-weight: v.$font-bold;
+  letter-spacing: -0.02em;
+  color: v.$color-foreground;
+  margin-bottom: v.$space-3;
+}
+
+.body {
+  max-width: 420px;
+  font-size: v.$text-base;
+  color: v.$color-muted-foreground;
+  line-height: v.$leading-relaxed;
+  margin-bottom: v.$space-8;
+}
+
+.cta {
+  display: inline-flex;
+  align-items: center;
+  gap: v.$space-2;
+  height: 44px;
+  padding: 0 v.$space-6;
+  border-radius: v.$radius-lg;
+  background-color: v.$color-primary;
+  color: v.$color-primary-foreground;
+  font-size: v.$text-sm;
+  font-weight: v.$font-semibold;
+  text-decoration: none;
+  transition: background-color v.$transition-base;
+
+  &:hover { background-color: v.$color-primary-hover; }
+}

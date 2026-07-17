@@ -1,0 +1,51 @@
+@use "../../styles/variables" as v;
+@use "../../styles/mixins" as m;
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 48px;
+  pointer-events: none;
+  opacity: 0;
+  background-color: rgba(v.$color-background, 0.55);
+  backdrop-filter: blur(2px);
+  transition:
+    opacity v.$transition-base ease-out,
+    backdrop-filter v.$transition-base ease-out;
+
+  &.visible {
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
+
+.spinner {
+  @include m.flex(row, center, center, v.$space-2);
+  height: 44px;
+  padding: 0 v.$space-5;
+  border-radius: v.$radius-full;
+  background-color: rgba(v.$color-background, 0.92);
+  border: 1px solid v.$color-border;
+  box-shadow: v.$shadow-lg;
+  color: v.$color-foreground;
+}
+
+.icon {
+  animation: spin 1s linear infinite;
+  color: v.$color-primary;
+}
+
+.label {
+  font-size: v.$text-sm;
+  font-weight: v.$font-medium;
+  color: v.$color-foreground;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}

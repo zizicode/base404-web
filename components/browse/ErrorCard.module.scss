@@ -1,0 +1,100 @@
+@use "../../styles/variables" as v;
+@use "../../styles/mixins" as m;
+
+.card {
+  @include m.flex(column, flex-start, stretch, v.$space-3);
+  @include m.card(v.$space-4);
+  text-decoration: none;
+  transition: box-shadow v.$transition-base, border-color v.$transition-base, transform v.$transition-base;
+  height: 100%;
+
+  &:hover {
+    border-color: rgba(v.$color-primary, 0.4);
+    box-shadow: v.$shadow-md;
+    transform: translateY(-2px);
+  }
+
+  &:focus-visible {
+    @include m.focus-ring;
+    border-radius: v.$radius-lg;
+  }
+}
+
+.top {
+  @include m.flex(row, space-between, center, v.$space-2);
+}
+
+.code {
+  display: inline-flex;
+  align-items: center;
+  height: 26px;
+  padding: 0 v.$space-2;
+  border-radius: v.$radius-md;
+  background-color: v.$color-primary;
+  color: v.$color-primary-foreground;
+  font-size: v.$text-xs;
+  font-weight: v.$font-bold;
+  letter-spacing: 0.05em;
+  flex-shrink: 0;
+}
+
+.category {
+  font-size: v.$text-xs;
+  color: v.$color-muted-foreground;
+  font-weight: v.$font-medium;
+  background-color: v.$color-muted;
+  padding: 0 v.$space-2;
+  height: 22px;
+  border-radius: v.$radius-full;
+  display: inline-flex;
+  align-items: center;
+}
+
+.title {
+  font-size: v.$text-sm;
+  font-weight: v.$font-semibold;
+  color: v.$color-foreground;
+  line-height: v.$leading-snug;
+  @include m.line-clamp(2);
+  flex: 1;
+}
+
+.meta {
+  @include m.flex(row, flex-start, center, v.$space-1);
+  font-size: v.$text-xs;
+  color: v.$color-muted-foreground;
+}
+
+.brand {
+  font-weight: v.$font-medium;
+}
+
+.model {
+  color: v.$color-muted-foreground;
+}
+
+.footer {
+  @include m.flex(row, flex-start, center, v.$space-3);
+  margin-top: auto;
+  padding-top: v.$space-2;
+  border-top: 1px solid v.$color-border;
+}
+
+.stat {
+  @include m.flex(row, flex-start, center, v.$space-1);
+  font-size: v.$text-xs;
+  color: v.$color-muted-foreground;
+}
+
+.cta {
+  @include m.flex(row, flex-start, center, v.$space-1);
+  margin-left: auto;
+  font-size: v.$text-xs;
+  font-weight: v.$font-semibold;
+  color: v.$color-primary;
+  transition: gap v.$transition-fast;
+
+  .card:hover & {
+    gap: v.$space-2;
+  }
+}

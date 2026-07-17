@@ -1,0 +1,57 @@
+@use "../../styles/variables" as *;
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  border-bottom: 1px solid $color-border;
+  background-color: rgba($color-card, 0.85);
+  backdrop-filter: blur(10px);
+}
+
+.inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: $container-max;
+  height: 56px;
+  margin-inline: auto;
+  padding-inline: $space-4;
+
+  @media (min-width: $bp-md) {
+    padding-inline: $space-6;
+  }
+}
+
+.logo {
+  font-size: $text-lg;
+  font-weight: $font-bold;
+  letter-spacing: -0.02em;
+  color: $color-foreground;
+  text-decoration: none;
+
+  &:hover {
+    color: $color-foreground;
+  }
+}
+
+.logoAccent {
+  color: $color-primary;
+}
+
+.nav {
+  display: flex;
+  gap: $space-4;
+}
+
+.navLink {
+  font-size: $text-sm;
+  font-weight: $font-medium;
+  color: $color-muted-foreground;
+  text-decoration: none;
+  transition: color $transition-fast;
+
+  &:hover {
+    color: $color-foreground;
+  }
+}

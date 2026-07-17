@@ -1,0 +1,147 @@
+{
+  "nav": {
+    "brands": "Brands",
+    "categories": "Models",
+    "searchPlaceholder": "Search your error code…",
+    "searchLabel": "Search your error code",
+    "openSearch": "Open search",
+    "closeSearch": "Close search",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "switchToEn": "Switch to English",
+    "switchToEs": "Switch to Spanish",
+    "logoAlt": "Base404 — Home"
+  },
+  "hero": {
+    "eyebrow": "+12,000 guides available",
+    "heading": "Does your printer or scanner show an",
+    "headingAccent": "error code",
+    "headingEnd": "?",
+    "subheading": "Find the cause and solution in seconds. Step-by-step guides for laser, inkjet, tank, thermal printers, and scanners from the most popular brands.",
+    "searchLabel": "Search error code (e.g., 4C Epson L3210)",
+    "searchAriaLabel": "Search error code",
+    "searchPlaceholder": "e.g., 0x97",
+    "searchBtn": "Search",
+    "popular": "Popular:"
+  },
+  "brands": {
+    "title": "Browse by Brand",
+    "subtitle": "Select your brand and find all available troubleshooting guides.",
+    "viewAll": "View all brands",
+    "ariaLabel": "View errors for"
+  },
+  "categories": {
+    "title": "Browse by Model",
+    "subtitle": "Which printer or scanner model do you have? Choose and find the solution instantly.",
+    "ariaLabel": "View guides for",
+    "items": {
+      "hp-laserjet": { "name": "HP LaserJet Pro M404dn", "count": "150+ guides" },
+      "epson-ecotank": { "name": "Epson EcoTank L3210", "count": "240+ guides" },
+      "canon-pixma": { "name": "Canon Pixma G3110", "count": "180+ guides" },
+      "brother-hl": { "name": "Brother HL-L2350DW", "count": "120+ guides" },
+      "zebra-gk": { "name": "Zebra GK420d Thermal", "count": "90+ guides" },
+      "honeywell-pc": { "name": "Honeywell PC42t", "count": "70+ guides" }
+    }
+  },
+  "popularGuides": {
+    "title": "Most Popular Guides",
+    "subtitle": "The most searched and highly rated solutions by our community.",
+    "viewAll": "View all",
+    "views": "views",
+    "useful": "useful"
+  },
+  "howItWorks": {
+    "title": "How It Works",
+    "subtitle": "Resolving an error code has never been this simple. Just three steps.",
+    "stepsAria": "Steps to use the platform",
+    "steps": [
+      {
+        "title": "Search your code",
+        "description": "Enter the error code displayed on your printer's screen or blinking lights, and select the brand or model."
+      },
+      {
+        "title": "Follow the guide",
+        "description": "Read the step-by-step guide detailing causes, diagnostics, and illustrated solutions. Some errors include video tutorials."
+      },
+      {
+        "title": "Fix it",
+        "description": "Apply the steps in order, confirm the error is cleared, and vote if the guide helped you to assist others."
+      }
+    ]
+  },
+  "trustStats": {
+    "guides": "+12,000",
+    "guidesLabel": "Published guides",
+    "brands": "15",
+    "brandsLabel": "Brands covered",
+    "votes": "+95,000",
+    "votesLabel": "\"It worked\" votes"
+  },
+  "finalCta": {
+    "title": "Ready to fix your error?",
+    "body": "Type the code from your screen or the blinking light pattern and find the exact guide in seconds. No registration required, free.",
+    "searchBtn": "Search a code",
+    "howBtn": "How it works"
+  },
+  "browse": {
+    "searchTitle": "Search Errors",
+    "searchSubtitle": "Filter by code, brand, or model",
+    "allBrandsTitle": "All Brands",
+    "allBrandsSubtitle": "Explore error codes by manufacturer",
+    "allCategoriesTitle": "All Models",
+    "allCategoriesSubtitle": "Explore error codes by specific hardware",
+    "brandTitle": "{{name}} Errors",
+    "categoryTitle": "{{name}} Errors",
+    "filterPlaceholder": "Code or model…",
+    "filterBrand": "Brand",
+    "filterCategory": "Model",
+    "filterAll": "All",
+    "sortLabel": "Sort by",
+    "sortRelevance": "Relevance",
+    "sortRecent": "Most recent",
+    "resultsCount": "{{count}} results",
+    "noResults": "No results found",
+    "noResultsHint": "Try another code or clear some filters",
+    "loadMore": "Load more",
+    "errorCode": "Code",
+    "viewGuide": "View guide",
+    "backToBrands": "All brands",
+    "backToCategories": "All models",
+    "guidesCount": "{{count}} guides",
+    "filterClear": "Clear",
+    "showingOf": "Showing {{shown}} of {{total}}"
+  },
+  "footer": {
+    "tagline": "Step-by-step solutions for your printer and scanner error codes. Fast, clear, and jargon-free.",
+    "socialRedes": "Follow us",
+    "socialYoutube": "YouTube Channel",
+    "socialContact": "Email Support",
+    "popularBrands": "Popular Brands",
+    "categories": "Featured Models",
+    "resources": "Resources",
+    "legal": "Legal",
+    "copyright": "All rights reserved.",
+    "lang": "Language",
+    "resources_links": {
+      "blog": "Blog",
+      "howItWorks": "How It Works",
+      "contact": "Contact"
+    },
+    "legal_links": {
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Service"
+    },
+    "categories_list": [
+      "HP LaserJet Pro M404dn",
+      "HP Smart Tank 515",
+      "Epson EcoTank L3210",
+      "Epson EcoTank L4160",
+      "Epson TM-T88VI Thermal",
+      "Canon Pixma G3110",
+      "Canon imageCLASS MF3010",
+      "Brother HL-L2350DW",
+      "Zebra GK420d",
+      "Honeywell PC42t Desktop"
+    ]
+  }
+}

@@ -1,0 +1,77 @@
+@use "../../../styles/variables" as v;
+@use "../../../styles/mixins" as m;
+
+.section {
+  padding: v.$space-16 0;
+  background-color: v.$color-background;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: v.$space-10;
+}
+
+.title {
+  margin-bottom: v.$space-3;
+}
+
+.subtitle {
+  font-size: v.$text-base;
+  color: v.$color-muted-foreground;
+  max-width: 480px;
+  margin-inline: auto;
+}
+
+.grid {
+  @include m.flex(row, center, center, v.$space-5);
+  flex-wrap: wrap;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.badge {
+  @include m.flex(row, center, center, 0);
+  width: 84px;
+  height: 84px;
+  border-radius: v.$radius-full;
+  background-color: v.$color-card;
+  border: 1px solid v.$color-border;
+  box-shadow: v.$shadow-sm;
+  text-decoration: none;
+  overflow: hidden;
+  transition:
+    border-color v.$transition-fast,
+    box-shadow v.$transition-base,
+    transform v.$transition-fast;
+
+  &:hover {
+    border-color: v.$color-primary;
+    box-shadow: v.$shadow-md;
+    transform: translateY(-3px);
+  }
+
+  &:focus-visible { @include m.focus-ring; }
+}
+
+.logo {
+  object-fit: contain;
+  width: 48px;
+  height: 48px;
+}
+
+.fallback {
+  @include m.flex(row, center, center, 0);
+  width: 48px;
+  height: 48px;
+  border-radius: v.$radius-full;
+  background-color: v.$color-primary-soft;
+  color: v.$color-primary;
+  font-size: v.$text-xl;
+  font-weight: v.$font-bold;
+}
+
+.viewAll {
+  @include m.flex(row, center, center, 0);
+  margin-top: v.$space-8;
+}

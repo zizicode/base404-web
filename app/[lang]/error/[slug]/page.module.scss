@@ -1,0 +1,456 @@
+@use "../../../../styles/variables" as v;
+@use "../../../../styles/mixins" as m;
+
+.page {
+  min-height: 100vh;
+  padding: v.$space-8 0 v.$space-16;
+}
+
+// ── Breadcrumb ────────────────────────────────────────────────────────────────
+.breadcrumb {
+  @include m.flex(row, flex-start, center, 0);
+  flex-wrap: wrap;
+  margin-bottom: v.$space-8;
+  font-size: v.$text-sm;
+}
+
+.crumbLink {
+  color: v.$color-primary;
+  text-decoration: none;
+  font-weight: v.$font-medium;
+  &:hover { text-decoration: underline; }
+}
+
+.crumbSep {
+  color: v.$color-border;
+  margin-inline: v.$space-2;
+}
+
+.crumbCurrent {
+  color: v.$color-muted-foreground;
+}
+
+// ── Layout ────────────────────────────────────────────────────────────────────
+.layout {
+  @include m.flex(column, flex-start, flex-start, v.$space-6);
+
+  @include m.bp(lg) {
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    gap: v.$space-8;
+    align-items: flex-start;
+  }
+}
+
+// ── Main ──────────────────────────────────────────────────────────────────────
+.main {
+  @include m.flex(column, flex-start, stretch, v.$space-6);
+  min-width: 0;
+}
+
+// Hero card
+.heroCard {
+  @include m.card(v.$space-6);
+  @include m.flex(column, flex-start, flex-start, v.$space-4);
+}
+
+.heroTop {
+  @include m.flex(row, flex-start, center, v.$space-2);
+  flex-wrap: wrap;
+}
+
+.codeChip {
+  display: inline-flex;
+  align-items: center;
+  height: 32px;
+  padding: 0 v.$space-3;
+  border-radius: v.$radius-md;
+  background-color: v.$color-primary;
+  color: v.$color-primary-foreground;
+  font-size: v.$text-sm;
+  font-weight: v.$font-bold;
+  letter-spacing: 0.05em;
+}
+
+.codeChipSm {
+  display: inline-flex;
+  align-items: center;
+  height: 24px;
+  padding: 0 v.$space-2;
+  border-radius: v.$radius-sm;
+  background-color: v.$color-primary;
+  color: v.$color-primary-foreground;
+  font-size: v.$text-xs;
+  font-weight: v.$font-bold;
+}
+
+.modelChip {
+  @include m.flex(row, flex-start, center, v.$space-1);
+  height: 26px;
+  padding: 0 v.$space-2;
+  border-radius: v.$radius-full;
+  border: 1px solid v.$color-border;
+  background-color: v.$color-muted;
+  font-size: v.$text-xs;
+  color: v.$color-muted-foreground;
+}
+
+.videoBadge {
+  @include m.flex(row, flex-start, center, v.$space-1);
+  height: 26px;
+  padding: 0 v.$space-2;
+  border-radius: v.$radius-full;
+  background-color: v.$color-warm-soft;
+  color: v.$color-warm;
+  font-size: v.$text-xs;
+  font-weight: v.$font-semibold;
+}
+
+.title {
+  font-size: v.$text-2xl;
+  font-weight: v.$font-bold;
+  letter-spacing: -0.02em;
+  line-height: v.$leading-snug;
+  color: v.$color-foreground;
+
+  @include m.bp(md) { font-size: v.$text-3xl; }
+}
+
+.summary {
+  font-size: v.$text-base;
+  color: v.$color-muted-foreground;
+  line-height: v.$leading-relaxed;
+}
+
+.engagement {
+  @include m.flex(row, flex-start, center, v.$space-4);
+  padding-top: v.$space-2;
+  border-top: 1px solid v.$color-border;
+  width: 100%;
+}
+
+.engageStat {
+  @include m.flex(row, flex-start, center, v.$space-1);
+  font-size: v.$text-sm;
+  color: v.$color-muted-foreground;
+}
+
+// ── Generic section ────────────────────────────────────────────────────────────
+.section {
+  @include m.card(v.$space-6);
+  @include m.flex(column, flex-start, stretch, v.$space-4);
+}
+
+.sectionTitle {
+  @include m.flex(row, flex-start, center, v.$space-2);
+  font-size: v.$text-lg;
+  font-weight: v.$font-semibold;
+  color: v.$color-foreground;
+}
+
+.iconPrimary { color: v.$color-primary; }
+.iconWarm    { color: v.$color-warm; }
+
+// Causes list
+.causesList {
+  @include m.flex(column, flex-start, stretch, v.$space-3);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.causeItem {
+  @include m.flex(row, flex-start, flex-start, v.$space-3);
+  font-size: v.$text-sm;
+  color: v.$color-foreground;
+  line-height: v.$leading-relaxed;
+  padding: v.$space-3;
+  border-radius: v.$radius-md;
+  background-color: v.$color-warm-soft;
+  border-left: 3px solid v.$color-warm;
+}
+
+.causeNum {
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+  border-radius: v.$radius-full;
+  background-color: v.$color-warm;
+  color: v.$color-warm-foreground;
+  font-size: v.$text-xs;
+  font-weight: v.$font-bold;
+  @include m.flex(row, center, center, 0);
+}
+
+// Prose (markdown solutions)
+.prose {
+  font-size: v.$text-sm;
+  line-height: v.$leading-relaxed;
+  color: v.$color-foreground;
+
+  h1, h2, h3 {
+    font-weight: v.$font-semibold;
+    margin-top: v.$space-4;
+    margin-bottom: v.$space-2;
+    color: v.$color-foreground;
+  }
+  h2 { font-size: v.$text-base; }
+  h3 { font-size: v.$text-sm; }
+
+  p { margin-bottom: v.$space-3; }
+
+  ul {
+    padding-left: v.$space-5;
+    margin-bottom: v.$space-3;
+    li { margin-bottom: v.$space-1; }
+  }
+
+  strong { font-weight: v.$font-semibold; }
+  em     { font-style: italic; }
+}
+
+// Steps
+.stepsList {
+  @include m.flex(column, flex-start, stretch, 0);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  counter-reset: steps;
+}
+
+.stepItem {
+  @include m.flex(row, flex-start, flex-start, v.$space-4);
+  padding: v.$space-4 0;
+  border-bottom: 1px solid v.$color-border;
+
+  &:last-child { border-bottom: none; }
+}
+
+.stepNum {
+  flex-shrink: 0;
+  width: 30px;
+  height: 30px;
+  border-radius: v.$radius-full;
+  background-color: v.$color-primary;
+  color: v.$color-primary-foreground;
+  font-size: v.$text-sm;
+  font-weight: v.$font-bold;
+  @include m.flex(row, center, center, 0);
+}
+
+.stepBody {
+  @include m.flex(column, flex-start, stretch, v.$space-2);
+  flex: 1;
+  min-width: 0;
+}
+
+.stepTitle {
+  font-size: v.$text-sm;
+  font-weight: v.$font-semibold;
+  color: v.$color-foreground;
+}
+
+.stepDesc {
+  font-size: v.$text-sm;
+  color: v.$color-muted-foreground;
+  line-height: v.$leading-relaxed;
+}
+
+.stepImg {
+  width: 100%;
+  height: auto;
+  border-radius: v.$radius-md;
+  border: 1px solid v.$color-border;
+  margin-top: v.$space-2;
+}
+
+// Videos
+.videoSelector {
+  @include m.flex(row, flex-start, center, v.$space-2);
+  flex-wrap: wrap;
+}
+
+.videoOption {
+  border: 1px solid v.$color-border;
+  background: white;
+  color: v.$color-foreground;
+  border-radius: v.$radius-full;
+  padding: v.$space-2 v.$space-3;
+  font-size: v.$text-xs;
+  font-weight: v.$font-medium;
+  cursor: pointer;
+  transition: all v.$transition-fast;
+}
+
+.videoOptionActive {
+  background: v.$color-primary;
+  color: v.$color-primary-foreground;
+  border-color: v.$color-primary;
+}
+
+.videoGrid {
+  @include m.flex(column, flex-start, stretch, v.$space-4);
+}
+
+.videoWrap {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%;
+  border-radius: v.$radius-lg;
+  overflow: hidden;
+  background-color: v.$color-muted;
+}
+
+.videoFrame {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+// FAQs
+.faqList {
+  @include m.flex(column, flex-start, stretch, v.$space-3);
+}
+
+.faqItem {
+  @include m.flex(column, flex-start, stretch, v.$space-2);
+  padding: v.$space-4;
+  border-radius: v.$radius-md;
+  background-color: v.$color-muted;
+  border: 1px solid v.$color-border;
+}
+
+.faqQ {
+  font-size: v.$text-sm;
+  font-weight: v.$font-semibold;
+  color: v.$color-foreground;
+}
+
+.faqA {
+  font-size: v.$text-sm;
+  color: v.$color-muted-foreground;
+  line-height: v.$leading-relaxed;
+}
+
+// ── Sidebar ────────────────────────────────────────────────────────────────────
+.sidebar {
+  @include m.flex(column, flex-start, stretch, v.$space-4);
+  width: 100%;
+
+  @include m.bp(lg) {
+    position: sticky;
+    top: v.$space-8;
+  }
+}
+
+// Meta card
+.metaCard {
+  @include m.card(v.$space-4);
+}
+
+.metaList {
+  @include m.flex(column, flex-start, stretch, 0);
+}
+
+.metaRow {
+  @include m.flex(row, space-between, center, v.$space-2);
+  padding: v.$space-3 0;
+  border-bottom: 1px solid v.$color-border;
+  font-size: v.$text-sm;
+
+  &:last-child { border-bottom: none; }
+}
+
+.metaLabel {
+  @include m.flex(row, flex-start, center, v.$space-1);
+  color: v.$color-muted-foreground;
+  font-weight: v.$font-medium;
+  flex-shrink: 0;
+}
+
+.metaValue {
+  color: v.$color-foreground;
+  font-weight: v.$font-semibold;
+  text-align: right;
+}
+
+.metaLink {
+  @include m.flex(row, flex-end, center, v.$space-1);
+  color: v.$color-primary;
+  text-decoration: none;
+  font-weight: v.$font-semibold;
+  font-size: v.$text-sm;
+  &:hover { text-decoration: underline; }
+}
+
+// Related errors card
+.relatedCard {
+  @include m.card(v.$space-4);
+  @include m.flex(column, flex-start, stretch, v.$space-3);
+}
+
+.relatedTitle {
+  font-size: v.$text-sm;
+  font-weight: v.$font-semibold;
+  color: v.$color-foreground;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.relatedList {
+  @include m.flex(column, flex-start, stretch, v.$space-1);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.relatedItem {
+  @include m.flex(row, flex-start, center, v.$space-3);
+  padding: v.$space-2;
+  border-radius: v.$radius-md;
+  text-decoration: none;
+  transition: background-color v.$transition-fast;
+
+  &:hover { background-color: v.$color-muted; }
+  &:focus-visible { @include m.focus-ring; border-radius: v.$radius-md; }
+}
+
+.relatedCode {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  height: 24px;
+  padding: 0 v.$space-2;
+  border-radius: v.$radius-sm;
+  background-color: v.$color-primary;
+  color: v.$color-primary-foreground;
+  font-size: v.$text-xs;
+  font-weight: v.$font-bold;
+}
+
+.relatedMeta {
+  @include m.flex(column, flex-start, flex-start, 2px);
+  flex: 1;
+  min-width: 0;
+}
+
+.relatedItemTitle {
+  font-size: v.$text-xs;
+  font-weight: v.$font-medium;
+  color: v.$color-foreground;
+  @include m.line-clamp(1);
+}
+
+.relatedSub {
+  font-size: v.$text-xs;
+  color: v.$color-muted-foreground;
+}
+
+.relatedArrow {
+  color: v.$color-muted-foreground;
+  flex-shrink: 0;
+  transition: transform v.$transition-fast;
+  .relatedItem:hover & { transform: translateX(2px); }
+}

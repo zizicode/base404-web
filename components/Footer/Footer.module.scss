@@ -1,0 +1,81 @@
+@use "../../styles/variables" as *;
+
+.footer {
+  border-top: 1px solid $color-border;
+  background-color: $color-card;
+}
+
+.inner {
+  display: flex;
+  flex-direction: column;
+  gap: $space-8;
+  max-width: $container-max;
+  margin-inline: auto;
+  padding: $space-10 $space-4;
+
+  @media (min-width: $bp-md) {
+    flex-direction: row;
+    justify-content: space-between;
+    padding-inline: $space-6;
+  }
+}
+
+.brand {
+  max-width: 320px;
+}
+
+.logo {
+  font-size: $text-lg;
+  font-weight: $font-bold;
+  color: $color-foreground;
+  text-decoration: none;
+
+  &:hover {
+    color: $color-foreground;
+  }
+}
+
+.logoAccent {
+  color: $color-primary;
+}
+
+.tagline {
+  margin-top: $space-2;
+  font-size: $text-sm;
+  color: $color-muted-foreground;
+  line-height: $leading-relaxed;
+}
+
+.links {
+  display: flex;
+  flex-direction: column;
+  gap: $space-2;
+}
+
+.linksTitle {
+  font-size: $text-xs;
+  font-weight: $font-bold;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: $color-muted-foreground;
+  margin-bottom: $space-1;
+}
+
+.link {
+  font-size: $text-sm;
+  color: $color-muted-foreground;
+  text-decoration: none;
+  transition: color $transition-fast;
+
+  &:hover {
+    color: $color-primary;
+  }
+}
+
+.bottom {
+  border-top: 1px solid $color-border;
+  text-align: center;
+  padding: $space-6 $space-4;
+  font-size: $text-sm;
+  color: $color-muted-foreground;
+}

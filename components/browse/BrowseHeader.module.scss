@@ -1,0 +1,71 @@
+@use "../../styles/variables" as v;
+@use "../../styles/mixins" as m;
+
+.header {
+  @include m.flex(column, flex-start, flex-start, v.$space-3);
+  padding-bottom: v.$space-6;
+  border-bottom: 1px solid v.$color-border;
+  margin-bottom: v.$space-8;
+}
+
+.breadcrumb {
+  @include m.flex(row, flex-start, center, 0);
+  flex-wrap: wrap;
+}
+
+.crumbItem {
+  @include m.flex(row, flex-start, center, 0);
+}
+
+.crumbLink {
+  font-size: v.$text-sm;
+  color: v.$color-primary;
+  text-decoration: none;
+  font-weight: v.$font-medium;
+
+  &:hover { text-decoration: underline; }
+  &:focus-visible { @include m.focus-ring; border-radius: v.$radius-sm; }
+}
+
+.crumbCurrent {
+  font-size: v.$text-sm;
+  color: v.$color-muted-foreground;
+}
+
+.crumbSep {
+  color: v.$color-border;
+  margin-inline: v.$space-1;
+}
+
+.titleRow {
+  @include m.flex(row, flex-start, center, v.$space-3);
+  flex-wrap: wrap;
+}
+
+.title {
+  font-size: v.$text-3xl;
+  font-weight: v.$font-bold;
+  letter-spacing: -0.02em;
+  color: v.$color-foreground;
+
+  @include m.bp(md) { font-size: v.$text-4xl; }
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  height: 26px;
+  padding: 0 v.$space-3;
+  border-radius: v.$radius-full;
+  background-color: v.$color-primary-soft;
+  color: v.$color-primary;
+  font-size: v.$text-xs;
+  font-weight: v.$font-semibold;
+}
+
+.subtitle {
+  font-size: v.$text-base;
+  color: v.$color-muted-foreground;
+  line-height: v.$leading-relaxed;
+  max-width: 600px;
+}

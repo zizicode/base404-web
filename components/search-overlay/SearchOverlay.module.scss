@@ -1,0 +1,354 @@
+@use "../../styles/variables" as v;
+@use "../../styles/mixins" as m;
+
+// ── Trigger button (replaces inline Hero input) ──────────────────────────────
+.trigger {
+  @include m.flex(row, flex-start, center, v.$space-3);
+  width: 100%;
+  max-width: 620px;
+  height: 56px;
+  margin-inline: auto;
+  padding: 0 v.$space-4 0 v.$space-5;
+  background-color: v.$color-card;
+  border: 1px solid v.$color-border;
+  border-radius: v.$radius-xl;
+  box-shadow: v.$shadow-lg;
+  cursor: text;
+  transition: box-shadow v.$transition-base, border-color v.$transition-base;
+
+  &:hover {
+    border-color: rgba(v.$color-primary, 0.5);
+    box-shadow: 0 0 0 3px rgba(v.$color-primary, 0.08), v.$shadow-lg;
+  }
+
+  &:focus-visible { @include m.focus-ring; border-radius: v.$radius-xl; }
+}
+
+.triggerIcon {
+  color: v.$color-muted-foreground;
+  flex-shrink: 0;
+}
+
+.triggerPlaceholder {
+  flex: 1;
+  font-size: v.$text-base;
+  color: v.$color-muted-foreground;
+  text-align: left;
+
+  @include m.bp(md) { font-size: v.$text-lg; }
+}
+
+.triggerKbd {
+  display: none;
+  @include m.bp(md) { display: flex; }
+
+  kbd {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 24px;
+    min-width: 24px;
+    padding: 0 v.$space-2;
+    border: 1px solid v.$color-border;
+    border-radius: v.$radius-sm;
+    background-color: v.$color-muted;
+    font-size: v.$text-xs;
+    font-family: inherit;
+    color: v.$color-muted-foreground;
+  }
+}
+
+// ── Backdrop ─────────────────────────────────────────────────────────────────
+.backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background-color: rgba(16, 24, 40, 0.55);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  @include m.flex(column, flex-start, center, 0);
+  padding: v.$space-4;
+  padding-top: clamp(v.$space-8, 8vh, 120px);
+  animation: fadeIn v.$transition-fast forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+// ── Panel ────────────────────────────────────────────────────────────────────
+.panel {
+  width: 100%;
+  max-width: 680px;
+  max-height: min(80vh, 640px);
+  @include m.flex(column, flex-start, stretch, 0);
+  background-color: v.$color-card;
+  border: 1px solid v.$color-border;
+  border-radius: v.$radius-2xl;
+  box-shadow: v.$shadow-lg;
+  overflow: hidden;
+  animation: slideDown v.$transition-base forwards;
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+// ── Input row ────────────────────────────────────────────────────────────────
+.inputRow {
+  @include m.flex(row, flex-start, center, 0);
+  padding: 0 v.$space-4;
+  border-bottom: 1px solid v.$color-border;
+  flex-shrink: 0;
+}
+
+.inputIcon {
+  color: v.$color-primary;
+  flex-shrink: 0;
+}
+
+.input {
+  flex: 1;
+  height: 60px;
+  padding: 0 v.$space-3;
+  border: none;
+  background: transparent;
+  font-size: v.$text-lg;
+  color: v.$color-foreground;
+
+  &::placeholder { color: v.$color-muted-foreground; }
+  &:focus { outline: none; }
+}
+
+.spinner {
+  color: v.$color-primary;
+  animation: spin 0.7s linear infinite;
+  flex-shrink: 0;
+  margin-right: v.$space-2;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.closeBtn {
+  @include m.flex(row, center, center, 0);
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+  background: none;
+  border: 1px solid v.$color-border;
+  border-radius: v.$radius-md;
+  cursor: pointer;
+  color: v.$color-muted-foreground;
+  transition: color v.$transition-fast, background-color v.$transition-fast;
+
+  &:hover {
+    color: v.$color-foreground;
+    background-color: v.$color-muted;
+  }
+  &:focus-visible { @include m.focus-ring; }
+}
+
+// ── Scrollable body ───────────────────────────────────────────────────────────
+.body {
+  flex: 1;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+// ── Empty / hint state ────────────────────────────────────────────────────────
+.emptyState {
+  @include m.flex(column, flex-start, center, v.$space-4);
+  padding: v.$space-10 v.$space-6;
+  text-align: center;
+}
+
+.emptyIcon {
+  color: v.$color-border;
+}
+
+.emptyTitle {
+  font-size: v.$text-base;
+  font-weight: v.$font-semibold;
+  color: v.$color-foreground;
+}
+
+.emptySubtitle {
+  font-size: v.$text-sm;
+  color: v.$color-muted-foreground;
+}
+
+.emptyHints {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  @include m.flex(column, flex-start, flex-start, v.$space-2);
+  text-align: left;
+
+  li {
+    font-size: v.$text-sm;
+    color: v.$color-muted-foreground;
+  }
+
+  kbd {
+    display: inline-flex;
+    align-items: center;
+    height: 22px;
+    padding: 0 v.$space-2;
+    border: 1px solid v.$color-border;
+    border-radius: v.$radius-sm;
+    background-color: v.$color-muted;
+    font-size: v.$text-xs;
+    font-family: monospace;
+    font-weight: v.$font-semibold;
+    color: v.$color-foreground;
+    margin-right: v.$space-1;
+  }
+}
+
+.loadingState {
+  @include m.flex(row, center, center, v.$space-3);
+  padding: v.$space-10 v.$space-6;
+  font-size: v.$text-sm;
+  color: v.$color-muted-foreground;
+}
+
+// ── Results ───────────────────────────────────────────────────────────────────
+.results {
+  padding: v.$space-3 0 v.$space-2;
+}
+
+.group {
+  padding: v.$space-2 v.$space-4 v.$space-3;
+
+  & + & {
+    border-top: 1px solid v.$color-border;
+  }
+}
+
+.groupTitle {
+  @include m.flex(row, flex-start, center, v.$space-2);
+  font-size: v.$text-xs;
+  font-weight: v.$font-semibold;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: v.$color-muted-foreground;
+  margin-bottom: v.$space-2;
+}
+
+// Pills (brands / categories)
+.pills {
+  @include m.flex(row, flex-start, center, v.$space-2);
+  flex-wrap: wrap;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  height: 30px;
+  padding: 0 v.$space-3;
+  border: 1px solid v.$color-border;
+  border-radius: v.$radius-full;
+  background-color: v.$color-muted;
+  font-size: v.$text-sm;
+  font-weight: v.$font-medium;
+  color: v.$color-foreground;
+  text-decoration: none;
+  transition: border-color v.$transition-fast, background-color v.$transition-fast, color v.$transition-fast;
+
+  &:hover {
+    border-color: v.$color-primary;
+    background-color: v.$color-primary-soft;
+    color: v.$color-primary;
+  }
+  &:focus-visible { @include m.focus-ring; }
+}
+
+// Error guide rows
+.errorList {
+  @include m.flex(column, flex-start, stretch, v.$space-1);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.errorItem {
+  @include m.flex(row, flex-start, center, v.$space-3);
+  padding: v.$space-3;
+  border-radius: v.$radius-lg;
+  text-decoration: none;
+  transition: background-color v.$transition-fast;
+
+  &:hover { background-color: v.$color-muted; }
+  &:focus-visible { @include m.focus-ring; border-radius: v.$radius-lg; }
+}
+
+.errorCode {
+  flex-shrink: 0;
+  min-width: 44px;
+  height: 28px;
+  @include m.flex(row, center, center, 0);
+  border-radius: v.$radius-md;
+  background-color: v.$color-primary;
+  color: v.$color-primary-foreground;
+  font-size: v.$text-xs;
+  font-weight: v.$font-bold;
+  letter-spacing: 0.04em;
+  padding: 0 v.$space-2;
+}
+
+.errorMeta {
+  @include m.flex(column, flex-start, flex-start, v.$space-1);
+  flex: 1;
+  min-width: 0;
+}
+
+.errorTitle {
+  font-size: v.$text-sm;
+  font-weight: v.$font-medium;
+  color: v.$color-foreground;
+  @include m.line-clamp(1);
+}
+
+.errorSub {
+  font-size: v.$text-xs;
+  color: v.$color-muted-foreground;
+}
+
+.errorArrow {
+  color: v.$color-muted-foreground;
+  flex-shrink: 0;
+  transition: color v.$transition-fast, transform v.$transition-fast;
+
+  .errorItem:hover & {
+    color: v.$color-primary;
+    transform: translateX(2px);
+  }
+}
+
+// ── Full search footer CTA ────────────────────────────────────────────────────
+.fullSearch {
+  border-top: 1px solid v.$color-border;
+  padding: v.$space-2 v.$space-4;
+}
+
+.fullSearchLink {
+  @include m.flex(row, center, center, v.$space-2);
+  width: 100%;
+  padding: v.$space-3;
+  border-radius: v.$radius-lg;
+  font-size: v.$text-sm;
+  font-weight: v.$font-medium;
+  color: v.$color-primary;
+  text-decoration: none;
+  transition: background-color v.$transition-fast;
+
+  &:hover { background-color: v.$color-primary-soft; }
+  &:focus-visible { @include m.focus-ring; }
+}

@@ -1,0 +1,71 @@
+@use "../../../styles/variables" as v;
+@use "../../../styles/mixins" as m;
+
+.section {
+  padding: v.$space-16 0;
+  background: linear-gradient(180deg, v.$color-primary-soft 0%, v.$color-background 100%);
+}
+
+.header {
+  text-align: center;
+  margin-bottom: v.$space-12;
+}
+
+.title {
+  margin-bottom: v.$space-3;
+}
+
+.subtitle {
+  font-size: v.$text-base;
+  color: v.$color-muted-foreground;
+  max-width: 440px;
+  margin-inline: auto;
+}
+
+.steps {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: v.$space-6;
+  counter-reset: steps;
+
+  @include m.bp(md) { grid-template-columns: repeat(3, 1fr); }
+}
+
+.step {
+  position: relative;
+  @include m.card(v.$space-6);
+  @include m.flex(column, flex-start, flex-start, v.$space-4);
+  box-shadow: v.$shadow-sm;
+}
+
+.stepIcon {
+  @include m.flex(row, center, center, 0);
+  width: 52px;
+  height: 52px;
+  border-radius: v.$radius-lg;
+  background-color: v.$color-primary;
+  color: v.$color-primary-foreground;
+}
+
+.stepNumber {
+  position: absolute;
+  top: v.$space-5;
+  right: v.$space-5;
+  font-size: v.$text-3xl;
+  font-weight: v.$font-bold;
+  color: v.$color-border;
+  line-height: 1;
+  user-select: none;
+}
+
+.stepTitle {
+  font-size: v.$text-lg;
+  font-weight: v.$font-bold;
+  color: v.$color-foreground;
+}
+
+.stepDesc {
+  font-size: v.$text-sm;
+  color: v.$color-muted-foreground;
+  line-height: v.$leading-relaxed;
+}

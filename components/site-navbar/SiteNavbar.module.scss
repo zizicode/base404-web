@@ -1,0 +1,171 @@
+@use "../../styles/variables" as v;
+@use "../../styles/mixins" as m;
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  border-bottom: 1px solid v.$color-border;
+  background-color: rgba(v.$color-card, 0.88);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.inner {
+  @include m.flex(row, space-between, center, 0);
+  max-width: v.$container-max;
+  height: 60px;
+  margin-inline: auto;
+  padding-inline: v.$space-4;
+  gap: v.$space-4;
+
+  @include m.bp(md) {
+    padding-inline: v.$space-6;
+    gap: v.$space-6;
+  }
+}
+
+// ── Logo ──────────────────────────────────────────────────────────────────────
+.logo {
+  @include m.flex(row, flex-start, center, v.$space-2);
+  flex-shrink: 0;
+  text-decoration: none;
+  color: v.$color-foreground;
+
+  &:hover { color: v.$color-foreground; }
+  &:focus-visible { @include m.focus-ring; border-radius: v.$radius-sm; }
+}
+
+.logoIcon {
+  @include m.flex(row, center, center, 0);
+  width: 32px;
+  height: 32px;
+  border-radius: v.$radius-md;
+  background-color: v.$color-primary;
+  color: v.$color-primary-foreground;
+  flex-shrink: 0;
+}
+
+.logoWord {
+  font-size: v.$text-lg;
+  font-weight: v.$font-bold;
+  letter-spacing: -0.02em;
+}
+
+.logoAccent {
+  color: v.$color-primary;
+}
+
+// ── Right cluster ─────────────────────────────────────────────────────────────
+.right {
+  @include m.flex(row, flex-end, center, v.$space-1);
+  flex-shrink: 0;
+
+  @include m.bp(md) { gap: v.$space-2; }
+}
+
+.nav {
+  display: none;
+
+  @include m.bp(lg) {
+    @include m.flex(row, flex-start, center, v.$space-1);
+  }
+}
+
+.navLink {
+  min-height: 44px;
+  @include m.flex(row, center, center, 0);
+  padding: 0 v.$space-3;
+  font-size: v.$text-sm;
+  font-weight: v.$font-medium;
+  color: v.$color-muted-foreground;
+  text-decoration: none;
+  border-radius: v.$radius-md;
+  transition: color v.$transition-fast, background-color v.$transition-fast;
+
+  &:hover {
+    color: v.$color-foreground;
+    background-color: v.$color-muted;
+  }
+
+  &:focus-visible { @include m.focus-ring; }
+}
+
+.iconBtn {
+  @include m.flex(row, center, center, 0);
+  min-width: 44px;
+  min-height: 44px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  border-radius: v.$radius-md;
+  color: v.$color-muted-foreground;
+  transition: color v.$transition-fast, background-color v.$transition-fast;
+
+  &:hover {
+    color: v.$color-foreground;
+    background-color: v.$color-muted;
+  }
+
+  &:focus-visible { @include m.focus-ring; }
+}
+
+.hamburger {
+  @include m.bp(lg) { display: none; }
+}
+
+.langBtn {
+  min-height: 44px;
+  padding: 0 v.$space-3;
+  background: none;
+  border: 1px solid v.$color-border;
+  border-radius: v.$radius-md;
+  font-size: v.$text-xs;
+  font-weight: v.$font-bold;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  color: v.$color-muted-foreground;
+  transition: color v.$transition-fast, border-color v.$transition-fast, background-color v.$transition-fast;
+
+  &:hover {
+    color: v.$color-primary;
+    border-color: v.$color-primary;
+  }
+
+  &[aria-pressed="true"] {
+    background-color: v.$color-primary-soft;
+    color: v.$color-primary;
+    border-color: v.$color-primary;
+  }
+
+  &:focus-visible { @include m.focus-ring; }
+}
+
+// ── Mobile menu ───────────────────────────────────────────────────────────────
+.mobileMenu {
+  @include m.flex(column, flex-start, stretch, 0);
+  padding: v.$space-2 v.$space-4 v.$space-4;
+  border-top: 1px solid v.$color-border;
+  background-color: v.$color-card;
+
+  @include m.bp(lg) { display: none; }
+}
+
+.mobileNavLink {
+  min-height: 44px;
+  @include m.flex(row, flex-start, center, 0);
+  padding: 0 v.$space-3;
+  font-size: v.$text-base;
+  font-weight: v.$font-medium;
+  color: v.$color-foreground;
+  text-decoration: none;
+  border-radius: v.$radius-md;
+  transition: color v.$transition-fast, background-color v.$transition-fast;
+
+  &:hover {
+    color: v.$color-primary;
+    background-color: v.$color-primary-soft;
+  }
+
+  &:focus-visible { @include m.focus-ring; }
+}

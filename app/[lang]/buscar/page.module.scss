@@ -1,0 +1,7 @@
+@use "../../../styles/variables" as v;
+@use "../../../styles/mixins" as m;
+
+.page {
+  min-height: 100vh;
+  padding: v.$space-10 0 v.$space-16;
+}

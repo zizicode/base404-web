@@ -1,0 +1,136 @@
+@use "../../../styles/variables" as v;
+@use "../../../styles/mixins" as m;
+
+// ── Section ───────────────────────────────────────────────────────────────────
+.section {
+  padding: v.$space-16 0;
+  background-color: v.$color-secondary;
+  overflow: hidden;
+}
+
+// ── Header ────────────────────────────────────────────────────────────────────
+.header {
+  text-align: center;
+  margin-bottom: v.$space-10;
+}
+
+.title {
+  margin-bottom: v.$space-3;
+}
+
+.subtitle {
+  font-size: v.$text-base;
+  color: v.$color-muted-foreground;
+  max-width: 480px;
+  margin-inline: auto;
+}
+
+// ── Slider outer — full width, clips overflow, holds fade overlays ────────────
+.sliderOuter {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  // pause when user hovers anywhere on the band
+  &:hover .track { animation-play-state: paused; }
+}
+
+// ── Fade edge masks ───────────────────────────────────────────────────────────
+.fadeLeft,
+.fadeRight {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 120px;
+  z-index: 2;
+  pointer-events: none;
+
+  @include m.bp(lg) { width: 180px; }
+}
+
+.fadeLeft  { left: 0;  background: linear-gradient(to right,  v.$color-secondary 0%, transparent 100%); }
+.fadeRight { right: 0; background: linear-gradient(to left, v.$color-secondary 0%, transparent 100%); }
+
+// ── Scrolling track ───────────────────────────────────────────────────────────
+// The track contains 3× the padded set. We animate translateX by -33.333%
+// (= one full copy) so the loop is seamless.
+.track {
+  display: flex;
+  gap: v.$space-4;
+  width: max-content;
+  padding: v.$space-3 0 v.$space-4;
+  animation: marquee 100s linear infinite;
+  will-change: transform;
+
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-33.3333%); }
+}
+
+// ── Card ──────────────────────────────────────────────────────────────────────
+.card {
+  @include m.flex(column, flex-start, center, v.$space-2);
+  flex-shrink: 0;
+  width: 120px;
+  padding: v.$space-4 v.$space-3;
+  border-radius: v.$radius-xl;
+  border: 1px solid v.$color-border;
+  background-color: v.$color-background;
+  text-align: center;
+  text-decoration: none;
+  box-shadow: v.$shadow-sm;
+  transition:
+    box-shadow    v.$transition-base,
+    border-color  v.$transition-base,
+    transform     v.$transition-fast,
+    background-color v.$transition-base;
+
+  @include m.bp(md) { width: 136px; padding: v.$space-5 v.$space-4; }
+
+  &:hover {
+    border-color: v.$color-primary;
+    box-shadow: v.$shadow-md;
+    transform: translateY(-3px);
+    background-color: v.$color-primary-soft;
+
+    .iconWrap {
+      background-color: v.$color-primary;
+      color: v.$color-primary-foreground;
+    }
+  }
+
+  &:focus-visible { @include m.focus-ring; }
+}
+
+// ── Icon bubble ───────────────────────────────────────────────────────────────
+.iconWrap {
+  @include m.flex(row, center, center, 0);
+  width: 48px;
+  height: 48px;
+  border-radius: v.$radius-lg;
+  background-color: v.$color-primary-soft;
+  color: v.$color-primary;
+  transition: background-color v.$transition-base, color v.$transition-base;
+}
+
+// ── Label ─────────────────────────────────────────────────────────────────────
+.catName {
+  font-size: v.$text-xs;
+  font-weight: v.$font-semibold;
+  color: v.$color-foreground;
+  line-height: v.$leading-tight;
+  word-break: break-word;
+  hyphens: auto;
+}
+
+.catCount {
+  font-size: v.$text-xs;
+  color: v.$color-muted-foreground;
+}

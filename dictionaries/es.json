@@ -1,0 +1,147 @@
+{
+  "nav": {
+    "brands": "Marcas",
+    "categories": "Modelos",
+    "searchPlaceholder": "Busca tu código de error…",
+    "searchLabel": "Busca tu código de error",
+    "openSearch": "Abrir buscador",
+    "closeSearch": "Cerrar buscador",
+    "openMenu": "Abrir menú",
+    "closeMenu": "Cerrar menú",
+    "switchToEn": "Cambiar a inglés",
+    "switchToEs": "Cambiar a español",
+    "logoAlt": "Base404 — Inicio"
+  },
+  "hero": {
+    "eyebrow": "+12 000 guías disponibles",
+    "heading": "¿Tu impresora o escáner muestra un",
+    "headingAccent": "código de error",
+    "headingEnd": "?",
+    "subheading": "Encuentra la causa y la solución en segundos. Guías paso a paso para impresoras láser, de tinta, tanques continuos, térmicas y escáneres de las marcas más populares.",
+    "searchLabel": "Buscar código de error (ej. 4C Epson L3210)",
+    "searchAriaLabel": "Buscar código de error",
+    "searchPlaceholder": "Ej: 0x97",
+    "searchBtn": "Buscar",
+    "popular": "Populares:"
+  },
+  "brands": {
+    "title": "Buscar por marca",
+    "subtitle": "Selecciona tu marca y encuentra todas las guías disponibles.",
+    "viewAll": "Ver todas las marcas",
+    "ariaLabel": "Ver errores de"
+  },
+  "categories": {
+    "title": "Buscar por modelo",
+    "subtitle": "¿Qué modelo de impresora o escáner tienes? Elige y encuentra la solución al instante.",
+    "ariaLabel": "Ver guías de",
+    "items": {
+      "hp-laserjet": { "name": "HP LaserJet Pro M404dn", "count": "150+ guías" },
+      "epson-ecotank": { "name": "Epson EcoTank L3210", "count": "240+ guías" },
+      "canon-pixma": { "name": "Canon Pixma G3110", "count": "180+ guías" },
+      "brother-hl": { "name": "Brother HL-L2350DW", "count": "120+ guías" },
+      "zebra-gk": { "name": "Zebra GK420d Thermal", "count": "90+ guías" },
+      "honeywell-pc": { "name": "Honeywell PC42t", "count": "70+ guías" }
+    }
+  },
+  "popularGuides": {
+    "title": "Guías más populares",
+    "subtitle": "Las soluciones más buscadas y valoradas por nuestra comunidad.",
+    "viewAll": "Ver todas",
+    "views": "vistas",
+    "useful": "útil"
+  },
+  "howItWorks": {
+    "title": "¿Cómo funciona?",
+    "subtitle": "Resolver un código de error nunca fue tan sencillo. Solo tres pasos.",
+    "stepsAria": "Pasos para usar la plataforma",
+    "steps": [
+      {
+        "title": "Busca tu código",
+        "description": "Introduce el código de error que aparece en la pantalla o las luces de tu impresora y selecciona la marca o modelo."
+      },
+      {
+        "title": "Sigue la guía",
+        "description": "Lee la guía paso a paso con causas, diagnósticos y soluciones ilustradas. Algunos errores incluyen video explicativo."
+      },
+      {
+        "title": "Repáralo",
+        "description": "Aplica los pasos en orden, confirma que el error desaparece y vota si la guía te fue útil para ayudar a otros."
+      }
+    ]
+  },
+  "trustStats": {
+    "guides": "+12 000",
+    "guidesLabel": "Guías publicadas",
+    "brands": "15",
+    "brandsLabel": "Marcas cubiertas",
+    "votes": "+95 000",
+    "votesLabel": "Votos \"me sirvió\""
+  },
+  "finalCta": {
+    "title": "¿Listo para resolver tu error?",
+    "body": "Escribe el código que ves en tu pantalla o el patrón de luces intermitentes y encuentra la guía exacta en segundos. Sin registros, gratis.",
+    "searchBtn": "Buscar un código",
+    "howBtn": "Cómo funciona"
+  },
+  "browse": {
+    "searchTitle": "Buscar errores",
+    "searchSubtitle": "Filtra por código, marca o modelo",
+    "allBrandsTitle": "Todas las marcas",
+    "allBrandsSubtitle": "Explora los errores por fabricante",
+    "allCategoriesTitle": "Todos los modelos",
+    "allCategoriesSubtitle": "Explora los errores por hardware específico",
+    "brandTitle": "Errores de {{name}}",
+    "categoryTitle": "Errores de {{name}}",
+    "filterPlaceholder": "Código o modelo…",
+    "filterBrand": "Marca",
+    "filterCategory": "Modelo",
+    "filterAll": "Todos",
+    "sortLabel": "Ordenar",
+    "sortRelevance": "Relevancia",
+    "sortRecent": "Más recientes",
+    "resultsCount": "{{count}} resultados",
+    "noResults": "Sin resultados",
+    "noResultsHint": "Prueba con otro código o elimina algún filtro",
+    "loadMore": "Cargar más",
+    "errorCode": "Código",
+    "viewGuide": "Ver guía",
+    "backToBrands": "Todas las marcas",
+    "backToCategories": "Todos los modelos",
+    "guidesCount": "{{count}} guías",
+    "filterClear": "Limpiar",
+    "showingOf": "Mostrando {{shown}} de {{total}}"
+  },
+  "footer": {
+    "tagline": "Soluciones paso a paso para los códigos de error de tus impresoras y escáneres. Rápido, claro y sin tecnicismos.",
+    "socialRedes": "Síguenos en redes",
+    "socialYoutube": "Canal de YouTube",
+    "socialContact": "Contacto por correo",
+    "popularBrands": "Marcas populares",
+    "categories": "Modelos destacados",
+    "resources": "Recursos",
+    "legal": "Legal",
+    "copyright": "Todos los derechos reservados.",
+    "lang": "Idioma",
+    "resources_links": {
+      "blog": "Blog",
+      "howItWorks": "Cómo funciona",
+      "contact": "Contacto"
+    },
+    "legal_links": {
+      "privacy": "Privacidad",
+      "terms": "Términos"
+    },
+    "categories_list": [
+      "HP LaserJet Pro M404dn",
+      "HP Smart Tank 515",
+      "Epson EcoTank L3210",
+      "Epson EcoTank L4160",
+      "Epson TM-T88VI Thermal",
+      "Canon Pixma G3110",
+      "Canon imageCLASS MF3010",
+      "Brother HL-L2350DW",
+      "Zebra GK420d",
+      "Honeywell PC42t Desktop"
+    ]
+  }
+}

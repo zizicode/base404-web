@@ -1,0 +1,55 @@
+@use "../../../styles/variables" as v;
+@use "../../../styles/mixins" as m;
+
+.section {
+  padding: v.$space-16 0;
+  background-color: v.$color-background;
+}
+
+.card {
+  @include m.flex(column, flex-start, center, v.$space-6);
+  @include m.card(v.$space-12);
+  text-align: center;
+  background: linear-gradient(135deg, v.$color-primary-soft 0%, v.$color-card 60%);
+  border-color: rgba(v.$color-primary, 0.2);
+  box-shadow: v.$shadow-lg;
+
+  @include m.bp(md) { padding: v.$space-16; }
+}
+
+.iconWrap {
+  @include m.flex(row, center, center, 0);
+  width: 64px;
+  height: 64px;
+  border-radius: v.$radius-xl;
+  background-color: v.$color-primary;
+  color: v.$color-primary-foreground;
+  box-shadow: v.$shadow-md;
+}
+
+.title {
+  font-size: v.$text-3xl;
+  font-weight: v.$font-bold;
+  color: v.$color-foreground;
+  letter-spacing: -0.02em;
+  max-width: 480px;
+
+  @include m.bp(md) { font-size: v.$text-4xl; }
+}
+
+.body {
+  font-size: v.$text-base;
+  color: v.$color-muted-foreground;
+  max-width: 520px;
+  line-height: v.$leading-relaxed;
+
+  @include m.bp(md) { font-size: v.$text-lg; }
+}
+
+.actions {
+  @include m.flex(column, center, center, v.$space-3);
+
+  @include m.bp(sm) {
+    @include m.flex(row, center, center, v.$space-3);
+  }
+}

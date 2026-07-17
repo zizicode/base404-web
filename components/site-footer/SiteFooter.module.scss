@@ -1,0 +1,175 @@
+@use "../../styles/variables" as v;
+@use "../../styles/mixins" as m;
+
+.footer {
+  border-top: 1px solid v.$color-border;
+  background-color: v.$color-muted;
+}
+
+.inner {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: v.$space-8;
+  max-width: v.$container-max;
+  margin-inline: auto;
+  padding: v.$space-12 v.$space-4;
+
+  @include m.bp(sm) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include m.bp(lg) {
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    padding-inline: v.$space-6;
+  }
+}
+
+// ── Brand column ───────────────────────────────────────────────────────────────
+.brand {
+  @include m.flex(column, flex-start, flex-start, v.$space-4);
+}
+
+.logo {
+  @include m.flex(row, flex-start, center, v.$space-2);
+  text-decoration: none;
+  color: v.$color-foreground;
+
+  &:hover { color: v.$color-foreground; }
+  &:focus-visible { @include m.focus-ring; border-radius: v.$radius-sm; }
+}
+
+.logoIcon {
+  @include m.flex(row, center, center, 0);
+  width: 32px;
+  height: 32px;
+  border-radius: v.$radius-md;
+  background-color: v.$color-primary;
+  color: v.$color-primary-foreground;
+  flex-shrink: 0;
+}
+
+.logoWord {
+  font-size: v.$text-lg;
+  font-weight: v.$font-bold;
+  letter-spacing: -0.02em;
+}
+
+.logoAccent {
+  color: v.$color-primary;
+}
+
+.tagline {
+  font-size: v.$text-sm;
+  color: v.$color-muted-foreground;
+  line-height: v.$leading-relaxed;
+  max-width: 280px;
+}
+
+.socials {
+  @include m.flex(row, flex-start, center, v.$space-2);
+}
+
+.socialLink {
+  @include m.flex(row, center, center, 0);
+  min-width: 36px;
+  min-height: 36px;
+  border-radius: v.$radius-md;
+  color: v.$color-muted-foreground;
+  text-decoration: none;
+  transition: color v.$transition-fast, background-color v.$transition-fast;
+
+  &:hover {
+    color: v.$color-primary;
+    background-color: v.$color-primary-soft;
+  }
+
+  &:focus-visible { @include m.focus-ring; }
+}
+
+// ── Navigation columns ─────────────────────────────────────────────────────────
+.col {
+  @include m.flex(column, flex-start, flex-start, v.$space-2);
+}
+
+.colTitle {
+  font-size: v.$text-xs;
+  font-weight: v.$font-bold;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: v.$color-foreground;
+  margin-bottom: v.$space-1;
+}
+
+.colTitleSpaced {
+  margin-top: v.$space-6;
+}
+
+.colList {
+  @include m.flex(column, flex-start, flex-start, v.$space-2);
+  width: 100%;
+}
+
+.colLink {
+  font-size: v.$text-sm;
+  color: v.$color-muted-foreground;
+  text-decoration: none;
+  transition: color v.$transition-fast;
+  min-height: 28px;
+  display: flex;
+  align-items: center;
+
+  &:hover { color: v.$color-primary; }
+  &:focus-visible { @include m.focus-ring; border-radius: v.$radius-sm; }
+}
+
+// ── Bottom bar ─────────────────────────────────────────────────────────────────
+.bottom {
+  @include m.flex(column, center, center, v.$space-3);
+  border-top: 1px solid v.$color-border;
+  padding: v.$space-6 v.$space-4;
+  text-align: center;
+
+  @include m.bp(md) {
+    @include m.flex(row, space-between, center, 0);
+    padding-inline: v.$space-6;
+    max-width: v.$container-max;
+    margin-inline: auto;
+    width: 100%;
+  }
+}
+
+.copyright {
+  font-size: v.$text-sm;
+  color: v.$color-muted-foreground;
+}
+
+.bottomRight {
+  @include m.flex(row, center, center, v.$space-3);
+}
+
+.langSelector {
+  @include m.flex(row, center, center, v.$space-1);
+  font-size: v.$text-sm;
+  color: v.$color-muted-foreground;
+}
+
+.langOpt {
+  font-size: v.$text-sm;
+  font-weight: v.$font-medium;
+  color: v.$color-muted-foreground;
+  text-decoration: none;
+  padding: v.$space-1 v.$space-2;
+  border-radius: v.$radius-sm;
+  transition: color v.$transition-fast, background-color v.$transition-fast;
+
+  &:hover {
+    color: v.$color-primary;
+    background-color: v.$color-primary-soft;
+  }
+
+  &:focus-visible { @include m.focus-ring; }
+}
+
+.langSep {
+  color: v.$color-border;
+}

@@ -1,0 +1,63 @@
+@use "../../../styles/variables" as v;
+@use "../../../styles/mixins" as m;
+
+.page {
+  min-height: 100vh;
+  padding: v.$space-10 0 v.$space-16;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: v.$space-4;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  @include m.bp(sm) { grid-template-columns: repeat(2, 1fr); }
+  @include m.bp(md) { grid-template-columns: repeat(3, 1fr); }
+}
+
+.card {
+  @include m.flex(row, flex-start, center, v.$space-4);
+  @include m.card(v.$space-5);
+  text-decoration: none;
+  transition: box-shadow v.$transition-base, border-color v.$transition-base, transform v.$transition-base;
+
+  &:hover {
+    border-color: rgba(v.$color-primary, 0.4);
+    box-shadow: v.$shadow-md;
+    transform: translateY(-2px);
+  }
+
+  &:focus-visible {
+    @include m.focus-ring;
+    border-radius: v.$radius-lg;
+  }
+}
+
+.iconWrap {
+  @include m.flex(row, center, center, 0);
+  width: 52px;
+  height: 52px;
+  flex-shrink: 0;
+  border-radius: v.$radius-lg;
+  background-color: v.$color-primary-soft;
+  color: v.$color-primary;
+}
+
+.info {
+  @include m.flex(column, flex-start, flex-start, v.$space-1);
+  min-width: 0;
+}
+
+.name {
+  font-size: v.$text-lg;
+  font-weight: v.$font-semibold;
+  color: v.$color-foreground;
+}
+
+.count {
+  font-size: v.$text-sm;
+  color: v.$color-muted-foreground;
+}

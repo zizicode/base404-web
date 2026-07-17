@@ -1,0 +1,43 @@
+@use "../../../styles/variables" as v;
+@use "../../../styles/mixins" as m;
+
+.section {
+  padding: v.$space-12 0;
+  background-color: v.$color-primary;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: v.$space-8;
+  text-align: center;
+
+  @include m.bp(md) { grid-template-columns: repeat(3, 1fr); }
+}
+
+.item {
+  @include m.flex(column, center, center, v.$space-3);
+}
+
+.iconWrap {
+  @include m.flex(row, center, center, 0);
+  width: 52px;
+  height: 52px;
+  border-radius: v.$radius-lg;
+  background-color: rgba(v.$color-primary-foreground, 0.15);
+  color: v.$color-primary-foreground;
+}
+
+.value {
+  font-size: v.$text-4xl;
+  font-weight: v.$font-bold;
+  color: v.$color-primary-foreground;
+  letter-spacing: -0.03em;
+  line-height: v.$leading-tight;
+}
+
+.label {
+  font-size: v.$text-sm;
+  color: rgba(v.$color-primary-foreground, 0.75);
+  font-weight: v.$font-medium;
+}
