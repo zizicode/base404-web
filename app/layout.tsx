@@ -15,14 +15,11 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-  params,
 }: {
   children: React.ReactNode;
-  params?: { lang?: string };
 }) {
-  const lang = params?.lang ?? 'es';
   return (
-    <html lang={lang} suppressHydrationWarning>
+    <html lang="es" suppressHydrationWarning>
       <body className={roboto.className} suppressHydrationWarning>{children}</body>
     </html>
   );

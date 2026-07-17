@@ -52,7 +52,7 @@ function escapeXml(value: string): string {
 
 export async function GET(
   _request: Request,
-  { params }: { params: Promise<RouteParams> }
+  { params }: { params: Promise<Record<string, string>> }
 ) {
   const { type, locale } = await params;
 

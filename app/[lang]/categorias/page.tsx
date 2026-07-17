@@ -20,7 +20,7 @@ interface PageProps {
   params: Promise<{ lang: string }>;
 }
 
-export const ICON_MAP: Record<string, LucideIcon> = {
+const ICON_MAP: Record<string, LucideIcon> = {
   // Tipos de dispositivos e iconos generales de impresión
   'printer':           Printer,
   'printer-laser':     Printer,

@@ -1,5 +1,5 @@
 import { apiClient } from "./client";
-import type { ApiEnvelope, Category, ErrorsListItem } from "./types";
+import type { ApiEnvelope, Category, ErrorListItem, ErrorsListItem } from "./types";
 
 export async function getCategories(locale = "es"): Promise<Category[]> {
   try {
