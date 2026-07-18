@@ -33,7 +33,7 @@ export default async function LangLayout({
   params,
 }: {
   children: React.ReactNode;
-  params: Promise<{ lang: string }> | { lang: string };
+  params: Promise<{ lang: string }>;
 }) {
   const { lang } = await params;
   if (!isValidLocale(lang)) notFound();

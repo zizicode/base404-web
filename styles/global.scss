@@ -3,6 +3,7 @@
 //  vars, mixins reutilizables y utilidades base.
 
 @use "sass:map";
+@use "sass:color";
 @use "variables" as *;
 
 // -------------------------------------------------------------
@@ -188,7 +189,7 @@ a {
   &--secondary {
     background-color: $color-secondary;
     color: $color-secondary-foreground;
-    &:hover:not(:disabled) { background-color: darken($color-secondary, 4%); }
+    &:hover:not(:disabled) { background-color: color.adjust($color-secondary, $lightness: -4%); }
   }
 
   &--outline {
@@ -201,7 +202,7 @@ a {
   &--warm {
     background-color: $color-warm;
     color: $color-warm-foreground;
-    &:hover:not(:disabled) { background-color: darken($color-warm, 6%); }
+    &:hover:not(:disabled) { background-color: color.adjust($color-warm, $lightness: -6%); }
   }
 }
 
