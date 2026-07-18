@@ -42,17 +42,40 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
 export default async function ErrorPage({ params }: PageProps) {
   const { lang, slug } = await params;
-  if (!isValidLocale(lang)) notFound();
+  if (!isValidLocale(lang)) {
+    return (
+      <main className={styles.page}>
+        <div className="container">
+          <div className={styles.heroCard}>No se pudo cargar esta página.</div>
+        </div>
+      </main>
+    );
+  }
   const locale = lang as Locale;
 
   const [error, dict] = await Promise.all([
-    getErrorBySlug(slug, locale),
+    getErrorBySlug(slug, locale).catch(() => null),
     getDictionary(locale),
   ]);
 
-  if (!error) notFound();
-
   const isEs = locale === 'es';
+
+  if (!error) {
+    return (
+      <main className={styles.page}>
+        <div className="container">
+          <div className={styles.heroCard}>
+            <h1 className={styles.title}>{isEs ? 'No pudimos cargar este contenido' : 'We could not load this content'}</h1>
+            <p className={styles.summary}>
+              {isEs
+                ? 'El detalle de este error no está disponible en este momento. Intenta nuevamente más tarde.'
+                : 'The details for this error are not available right now. Please try again later.'}
+            </p>
+          </div>
+        </div>
+      </main>
+    );
+  }
   const preferredVideos = getPreferredVideos(error.content.videos, locale);
   const labels = {
     brand:       isEs ? 'Marca'           : 'Brand',
