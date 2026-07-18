@@ -10,7 +10,8 @@ export const metadata: Metadata = {
     template: "%s | VimazDev",
   },
   description:
-    "Encuentra soluciones paso a paso para los códigos de error de lavadoras, lavavajillas, hornos y más.",  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "https://vimovies.com"),
+    "Encuentra soluciones paso a paso para los códigos de error de lavadoras, lavavajillas, hornos y más.",
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "https://vimovies.com"),
   alternates: {
     canonical: "/",
     languages: {
@@ -21,7 +22,8 @@ export const metadata: Metadata = {
   robots: {
     index: true,
     follow: true,
-  },};
+  },
+};
 
 export default function RootLayout({
   children,

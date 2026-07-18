@@ -14,7 +14,8 @@ export const metadata: Metadata = {
     template: "%s | VimazDev",
   },
   description:
-    "Encuentra soluciones paso a paso para los códigos de error de lavadoras, lavavajillas, hornos y más. Guías claras con causas, pasos y videos.",  alternates: {
+    "Encuentra soluciones paso a paso para los códigos de error de lavadoras, lavavajillas, hornos y más. Guías claras con causas, pasos y videos.",
+  alternates: {
     canonical: "/",
     languages: {
       es: "/es",
@@ -24,7 +25,8 @@ export const metadata: Metadata = {
   robots: {
     index: true,
     follow: true,
-  },};
+  },
+};
 
 export default async function LangLayout({
   children,

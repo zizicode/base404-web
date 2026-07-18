@@ -3,7 +3,6 @@
 import { useState, useEffect, useRef, useCallback, useTransition } from 'react';
 import Link from 'next/link';
 import { Search, X, Tag, Layers, Tv2, ArrowRight, Loader2 } from 'lucide-react';
-import { apiClient } from '@/lib/api/client';
 import type { ApiEnvelope, SearchData } from '@/lib/api/types';
 import type { Locale } from '@/lib/i18n';
 import styles from './SearchOverlay.module.scss';
@@ -64,9 +63,16 @@ export default function SearchOverlay({ locale, placeholder, searchLabel }: Prop
     }
     startTransition(async () => {
       try {
-        const { data } = await apiClient.get<ApiEnvelope<SearchData>>('/search', {
-          params: { q: q.trim(), locale, limit: 8 },
+        const response = await fetch(`/api/search?q=${encodeURIComponent(q.trim())}&locale=${locale}&limit=8`, {
+          method: 'GET',
+          headers: { Accept: 'application/json' },
         });
+
+        if (!response.ok) {
+          throw new Error(`Search request failed: ${response.status}`);
+        }
+
+        const data = (await response.json()) as ApiEnvelope<SearchData>;
         if (data.success) {
           setResults({
             brands:     data.data.brands,
