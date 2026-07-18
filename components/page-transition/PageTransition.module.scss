@@ -11,15 +11,18 @@
   padding-bottom: 48px;
   pointer-events: none;
   opacity: 0;
+  transform: translateY(8px);
   background-color: rgba(v.$color-background, 0.55);
   backdrop-filter: blur(2px);
   transition:
-    opacity v.$transition-base ease-out,
-    backdrop-filter v.$transition-base ease-out;
+    opacity 180ms ease-out,
+    transform 180ms ease-out,
+    backdrop-filter 180ms ease-out;
 
   &.visible {
     opacity: 1;
     pointer-events: auto;
+    transform: translateY(0);
   }
 }
 
@@ -32,6 +35,14 @@
   border: 1px solid v.$color-border;
   box-shadow: v.$shadow-lg;
   color: v.$color-foreground;
+  transform: translateY(0) scale(1);
+  opacity: 1;
+  transition: transform 180ms ease-out, opacity 180ms ease-out;
+
+  .overlay:not(.visible) & {
+    transform: translateY(6px) scale(0.97);
+    opacity: 0;
+  }
 }
 
 .icon {

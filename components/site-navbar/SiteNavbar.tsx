@@ -41,7 +41,7 @@ export default function SiteNavbar({ locale, dict }: Props) {
             <Tv2 size={18} />
           </span>
           <span className={styles.logoWord}>
-            Vimovi<span className={styles.logoAccent}>es</span>
+            Vimaz<span className={styles.logoAccent}>Dev</span>
           </span>
         </Link>
 

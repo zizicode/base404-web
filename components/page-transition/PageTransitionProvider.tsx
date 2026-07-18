@@ -22,7 +22,7 @@ const PageTransitionContext = createContext<PageTransitionContextValue>({
 
 export const usePageTransition = () => useContext(PageTransitionContext);
 
-const MIN_OVERLAY_MS = 2000;
+const MIN_OVERLAY_MS = 800;
 
 export function PageTransitionProvider({
   children,

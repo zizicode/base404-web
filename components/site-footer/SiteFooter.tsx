@@ -26,12 +26,12 @@ export default function SiteFooter({ locale, dict }: Props) {
       <div className={styles.inner}>
         {/* Brand column */}
         <div className={styles.brand}>
-          <Link href={p} className={styles.logo} aria-label="Vimovies — Inicio">
+          <Link href={p} className={styles.logo} aria-label="VimazDev — Inicio">
             <span className={styles.logoIcon} aria-hidden="true">
               <Tv2 size={18} />
             </span>
             <span className={styles.logoWord}>
-              Vi<span className={styles.logoAccent}>movies</span>
+              Vimaz<span className={styles.logoAccent}>Dev</span>
             </span>
           </Link>
           <p className={styles.tagline}>{dict.tagline}</p>
@@ -99,7 +99,7 @@ export default function SiteFooter({ locale, dict }: Props) {
       {/* Bottom bar */}
       <div className={styles.bottom}>
         <p className={styles.copyright}>
-          © {new Date().getFullYear()} Vimovies. {dict.copyright}
+          © {new Date().getFullYear()} VimazDev. {dict.copyright}
         </p>
         <div className={styles.bottomRight}>
           <span className={styles.langSelector} aria-label={dict.lang}>

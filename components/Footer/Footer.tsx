@@ -7,7 +7,7 @@ export default function Footer() {
       <div className={styles.inner}>
         <div className={styles.brand}>
           <Link href="/" className={styles.logo}>
-            Base<span className={styles.logoAccent}>404</span>
+            Vimaz<span className={styles.logoAccent}>Dev</span>
           </Link>
           <p className={styles.tagline}>
             Soluciones paso a paso para códigos de error de electrodomésticos.
@@ -24,7 +24,7 @@ export default function Footer() {
 
       <div className={styles.bottom}>
         <p>
-          © {new Date().getFullYear()} Base404 by Vimovies. Todos los derechos
+          © {new Date().getFullYear()} VimazDev. Todos los derechos
           reservados.
         </p>
       </div>

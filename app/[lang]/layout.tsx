@@ -10,12 +10,21 @@ import { isValidLocale, type Locale } from "@/lib/i18n";
 
 export const metadata: Metadata = {
   title: {
-    default: "Vimovies — Códigos de error de electrodomésticos",
-    template: "%s | Vimovies",
+    default: "VimazDev — Códigos de error de electrodomésticos",
+    template: "%s | VimazDev",
   },
   description:
-    "Encuentra soluciones paso a paso para los códigos de error de lavadoras, lavavajillas, hornos y más. Guías claras con causas, pasos y videos.",
-};
+    "Encuentra soluciones paso a paso para los códigos de error de lavadoras, lavavajillas, hornos y más. Guías claras con causas, pasos y videos.",  alternates: {
+    canonical: "/",
+    languages: {
+      es: "/es",
+      en: "/en",
+    },
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },};
 
 export default async function LangLayout({
   children,
