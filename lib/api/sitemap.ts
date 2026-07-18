@@ -18,7 +18,7 @@ async function fetchApiXml(path: string, params: Record<string, string | number 
   };
 }
 
-const baseUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://vimovies.com";
+const baseUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://vimazdev.com";
 
 export interface SitemapUrl {
   loc: string;

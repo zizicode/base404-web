@@ -1,6 +1,12 @@
 import { NextResponse } from "next/server";
 
-const baseUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://vimovies.com";
+function getSiteUrl() {
+  const raw = process.env.NEXT_PUBLIC_SITE_URL?.trim();
+  if (!raw) return "https://vimazdev.com";
+  return raw.startsWith("http://") || raw.startsWith("https://") ? raw : `https://${raw}`;
+}
+
+const baseUrl = getSiteUrl();
 
 export async function GET(): Promise<NextResponse> {
   const body = [

@@ -1,11 +1,18 @@
 import { NextResponse } from "next/server";
 
+function getSiteUrl() {
+  const raw = process.env.NEXT_PUBLIC_SITE_URL?.trim();
+  if (!raw) return "https://vimazdev.com";
+  return raw.startsWith("http://") || raw.startsWith("https://") ? raw : `https://${raw}`;
+}
+
 export async function GET() {
+  const baseUrl = getSiteUrl();
   const body = [
     '<?xml version="1.0" encoding="UTF-8"?>',
     '<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
     '  <sitemap>',
-    `    <loc>${process.env.NEXT_PUBLIC_SITE_URL ?? "https://vimovies.com"}/sitemap-index.xml</loc>`,
+    `    <loc>${baseUrl}/sitemap-index.xml</loc>`,
     '  </sitemap>',
     '</sitemapindex>',
   ].join("\n");

@@ -8,7 +8,7 @@ export async function GET(request: NextRequest) {
   const locale = searchParams.get('locale') ?? 'es';
   const limit = searchParams.get('limit') ?? '8';
 
-  const baseUrl = (process.env.NEXT_PUBLIC_API_URL ?? 'https://api.vimovies.com/v1').replace(/\/$/, '');
+  const baseUrl = (process.env.NEXT_PUBLIC_API_URL ?? 'https://api.vimazdev.com/v1').replace(/\/$/, '');
   const upstreamUrl = new URL(`${baseUrl}/search`);
 
   if (q.length >= 2) upstreamUrl.searchParams.set('q', q);

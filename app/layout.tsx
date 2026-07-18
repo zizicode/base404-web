@@ -4,6 +4,12 @@ import "@/styles/global.scss";
 
 const roboto = Roboto({ subsets: ["latin"], weight: ["400", "500", "700"], display: "swap" });
 
+function getSiteUrl() {
+  const raw = process.env.NEXT_PUBLIC_SITE_URL?.trim();
+  if (!raw) return "https://vimazdev.com";
+  return raw.startsWith("http://") || raw.startsWith("https://") ? raw : `https://${raw}`;
+}
+
 export const metadata: Metadata = {
   title: {
     default: "VimazDev — Códigos de error de electrodomésticos",
@@ -11,7 +17,7 @@ export const metadata: Metadata = {
   },
   description:
     "Encuentra soluciones paso a paso para los códigos de error de lavadoras, lavavajillas, hornos y más.",
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "https://vimovies.com"),
+  metadataBase: new URL(getSiteUrl()),
   alternates: {
     canonical: "/",
     languages: {
