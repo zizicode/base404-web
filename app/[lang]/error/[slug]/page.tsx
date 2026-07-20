@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
 import {
-  ChevronRight, Tag, Cpu, Eye, ThumbsUp,
+  ChevronRight, Tag, Cpu,
   AlertTriangle, Lightbulb, ListChecks, HelpCircle, PlayCircle,
 } from 'lucide-react';
 import { getErrorBySlug } from '@/lib/api/errors';
@@ -11,6 +11,7 @@ import { getPreferredVideos } from '@/lib/api/videos';
 import { isValidLocale, type Locale } from '@/lib/i18n';
 import { getDictionary } from '@/dictionaries/dictionaries';
 import ErrorVideoSelector from '@/components/error-video-selector/ErrorVideoSelector';
+import ErrorEngagement from '@/components/error-engagement/ErrorEngagement';
 import styles from './page.module.scss';
 
 interface PageProps {
@@ -142,16 +143,17 @@ export default async function ErrorPage({ params }: PageProps) {
                 <h1 className={styles.title}>{error.seo.title}</h1>
                 <p className={styles.summary}>{error.content.summary}</p>
 
-                <div className={styles.engagement}>
-                  <span className={styles.engageStat}>
-                    <Eye size={14} aria-hidden="true" />
-                    {error.engagement.views.toLocaleString()} {labels.views}
-                  </span>
-                  <span className={styles.engageStat}>
-                    <ThumbsUp size={14} aria-hidden="true" />
-                    {error.engagement.helpfulVotes.toLocaleString()} {labels.helpful}
-                  </span>
-                </div>
+                <ErrorEngagement
+                  errorId={error.id}
+                  slug={error.slug}
+                  locale={locale}
+                  initialViews={error.engagement.views}
+                  initialVotes={error.engagement.helpfulVotes}
+                  viewLabel={labels.views}
+                  helpfulLabel={labels.helpful}
+                  voteLabel={isEs ? '¿Te fue útil?' : 'Was this helpful?'}
+                  votedLabel={isEs ? 'Votado' : 'Voted'}
+                />
               </div>
 
               {/* Causes */}

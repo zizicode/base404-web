@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef, useCallback, useTransition } from 'react';
 import Link from 'next/link';
-import { Search, X, Tag, Layers, Tv2, ArrowRight, Loader2 } from 'lucide-react';
+import { Search, X, Tag, Layers, Printer, ArrowRight, Loader2 } from 'lucide-react';
 import type { ApiEnvelope, SearchData } from '@/lib/api/types';
 import type { Locale } from '@/lib/i18n';
 import styles from './SearchOverlay.module.scss';
@@ -169,9 +169,9 @@ export default function SearchOverlay({ locale, placeholder, searchLabel }: Prop
                     {locale === 'es' ? 'Busca por código, marca o categoría' : 'Search by code, brand or category'}
                   </p>
                   <ul className={styles.emptyHints}>
-                    <li><kbd>1E</kbd> — {locale === 'es' ? 'código de error exacto' : 'exact error code'}</li>
-                    <li><kbd>Samsung</kbd> — {locale === 'es' ? 'todos los errores de una marca' : 'all errors for a brand'}</li>
-                    <li><kbd>Lavadora</kbd> — {locale === 'es' ? 'errores por categoría' : 'errors by category'}</li>
+                    <li><kbd>E0</kbd> — {locale === 'es' ? 'código de error exacto' : 'exact error code'}</li>
+                    <li><kbd>HP</kbd> — {locale === 'es' ? 'todos los errores de una marca' : 'all errors for a brand'}</li>
+                    <li><kbd>Impresora</kbd> — {locale === 'es' ? 'errores por categoría' : 'errors by category'}</li>
                   </ul>
                 </div>
               )}
@@ -194,8 +194,8 @@ export default function SearchOverlay({ locale, placeholder, searchLabel }: Prop
                   </p>
                   <p className={styles.emptySubtitle}>
                     {locale === 'es'
-                      ? 'Prueba con el código de error exacto (ej. 1E, F21, OE)'
-                      : 'Try the exact error code (e.g. 1E, F21, OE)'}
+                      ? 'Prueba con el código de error exacto (ej. E0, 0x97, B204)'
+                      : 'Try the exact error code (e.g. E0, 0x97, B204)'}
                   </p>
                 </div>
               )}
@@ -207,7 +207,7 @@ export default function SearchOverlay({ locale, placeholder, searchLabel }: Prop
                   {results.brands.length > 0 && (
                     <section className={styles.group}>
                       <h3 className={styles.groupTitle}>
-                        <Tv2 size={13} aria-hidden="true" />
+                        <Printer size={13} aria-hidden="true" />
                         {locale === 'es' ? 'Marcas' : 'Brands'}
                       </h3>
                       <ul className={styles.pills}>

@@ -26,35 +26,7 @@
 }
 
 // ── Logo ──────────────────────────────────────────────────────────────────────
-.logo {
-  @include m.flex(row, flex-start, center, v.$space-2);
-  flex-shrink: 0;
-  text-decoration: none;
-  color: v.$color-foreground;
-
-  &:hover { color: v.$color-foreground; }
-  &:focus-visible { @include m.focus-ring; border-radius: v.$radius-sm; }
-}
-
-.logoIcon {
-  @include m.flex(row, center, center, 0);
-  width: 32px;
-  height: 32px;
-  border-radius: v.$radius-md;
-  background-color: v.$color-primary;
-  color: v.$color-primary-foreground;
-  flex-shrink: 0;
-}
-
-.logoWord {
-  font-size: v.$text-lg;
-  font-weight: v.$font-bold;
-  letter-spacing: -0.02em;
-}
-
-.logoAccent {
-  color: v.$color-primary;
-}
+// Logo styles live in components/site-logo/SiteLogo.module.scss
 
 // ── Right cluster ─────────────────────────────────────────────────────────────
 .right {

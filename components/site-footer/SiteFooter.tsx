@@ -1,5 +1,6 @@
 import Link from 'next/link';
-import { Tv2, Globe, Share2, Mail } from 'lucide-react';
+import { Globe, Share2, Mail } from 'lucide-react';
+import SiteLogo from '@/components/site-logo';
 import type { Locale } from '@/lib/i18n';
 import type { Dictionary } from '@/dictionaries/dictionaries';
 import styles from './SiteFooter.module.scss';
@@ -26,14 +27,7 @@ export default function SiteFooter({ locale, dict }: Props) {
       <div className={styles.inner}>
         {/* Brand column */}
         <div className={styles.brand}>
-          <Link href={p} className={styles.logo} aria-label="VimazDev — Inicio">
-            <span className={styles.logoIcon} aria-hidden="true">
-              <Tv2 size={18} />
-            </span>
-            <span className={styles.logoWord}>
-              Vimaz<span className={styles.logoAccent}>Dev</span>
-            </span>
-          </Link>
+          <SiteLogo href={p} ariaLabel={dict.logoAlt} />
           <p className={styles.tagline}>{dict.tagline}</p>
           <div className={styles.socials} aria-label="Redes sociales">
             <a href="https://twitter.com" className={styles.socialLink} target="_blank" rel="noopener noreferrer" aria-label={dict.socialRedes}>
@@ -99,7 +93,7 @@ export default function SiteFooter({ locale, dict }: Props) {
       {/* Bottom bar */}
       <div className={styles.bottom}>
         <p className={styles.copyright}>
-          © {new Date().getFullYear()} VimazDev. {dict.copyright}
+          © {new Date().getFullYear()} Vimazdev. {dict.copyright}
         </p>
         <div className={styles.bottomRight}>
           <span className={styles.langSelector} aria-label={dict.lang}>

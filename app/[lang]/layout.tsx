@@ -10,8 +10,8 @@ import { isValidLocale, type Locale } from "@/lib/i18n";
 
 export const metadata: Metadata = {
   title: {
-    default: "VimazDev — Códigos de error de electrodomésticos",
-    template: "%s | VimazDev",
+    default: "Vimazdev — Códigos de error de electrodomésticos",
+    template: "%s | Vimazdev",
   },
   description:
     "Encuentra soluciones paso a paso para los códigos de error de lavadoras, lavavajillas, hornos y más. Guías claras con causas, pasos y videos.",

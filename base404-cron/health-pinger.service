@@ -1,0 +1,17 @@
+[Unit]
+Description=Health Pinger - mantiene despierta la API de Render
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+# Ajusta estas rutas según dónde subas el proyecto en tu servidor
+WorkingDirectory=/opt/health-pinger
+ExecStart=/usr/bin/python3 /opt/health-pinger/pinger.py
+Environment=API_URL=https://tu-api.onrender.com
+Environment=INTERVAL_MINUTES=15
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target

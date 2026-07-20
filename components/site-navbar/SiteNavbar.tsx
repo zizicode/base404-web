@@ -3,7 +3,8 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { useRouter, usePathname } from 'next/navigation';
-import { X, Menu, Tv2 } from 'lucide-react';
+import { X, Menu } from 'lucide-react';
+import SiteLogo from '@/components/site-logo';
 import { useLocaleStore } from '@/store/useLocaleStore';
 import type { Locale } from '@/lib/i18n';
 import type { Dictionary } from '@/dictionaries/dictionaries';
@@ -36,14 +37,7 @@ export default function SiteNavbar({ locale, dict }: Props) {
     <header className={styles.header} role="banner">
       <div className={styles.inner}>
         {/* Logo */}
-        <Link href={`/${locale}`} className={styles.logo} aria-label={dict.logoAlt}>
-          <span className={styles.logoIcon} aria-hidden="true">
-            <Tv2 size={18} />
-          </span>
-          <span className={styles.logoWord}>
-            Vimaz<span className={styles.logoAccent}>Dev</span>
-          </span>
-        </Link>
+        <SiteLogo href={`/${locale}`} ariaLabel={dict.logoAlt} />
 
         {/* Right side */}
         <div className={styles.right}>

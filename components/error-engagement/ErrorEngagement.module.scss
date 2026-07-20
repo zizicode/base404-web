@@ -1,0 +1,63 @@
+@use "../../styles/variables" as v;
+@use "../../styles/mixins" as m;
+
+.engagement {
+  @include m.flex(row, flex-start, center, v.$space-4);
+  flex-wrap: wrap;
+  padding-top: v.$space-2;
+  border-top: 1px solid v.$color-border;
+  width: 100%;
+}
+
+.engageStat {
+  @include m.flex(row, flex-start, center, v.$space-1);
+  font-size: v.$text-sm;
+  color: v.$color-muted-foreground;
+}
+
+.voteBtn {
+  @include m.flex(row, flex-start, center, v.$space-2);
+  min-height: 36px;
+  padding: 0 v.$space-3;
+  border-radius: v.$radius-full;
+  border: 1px solid v.$color-border;
+  background-color: v.$color-card;
+  color: v.$color-foreground;
+  font-size: v.$text-sm;
+  font-weight: v.$font-medium;
+  cursor: pointer;
+  transition:
+    background-color v.$transition-fast,
+    border-color v.$transition-fast,
+    color v.$transition-fast,
+    transform v.$transition-fast;
+
+  &:hover:not(:disabled) {
+    border-color: rgba(v.$color-primary, 0.5);
+    background-color: v.$color-primary-soft;
+    transform: translateY(-1px);
+  }
+
+  &:focus-visible { @include m.focus-ring; }
+
+  &:disabled { cursor: default; opacity: 0.9; }
+}
+
+.voteBtnActive {
+  background-color: v.$color-primary;
+  border-color: v.$color-primary;
+  color: v.$color-primary-foreground;
+
+  &:hover:not(:disabled) {
+    background-color: v.$color-primary;
+    border-color: v.$color-primary;
+  }
+}
+
+.votedTag {
+  font-size: v.$text-xs;
+  font-weight: v.$font-semibold;
+  padding: 2px v.$space-2;
+  border-radius: v.$radius-full;
+  background-color: rgba(255, 255, 255, 0.2);
+}

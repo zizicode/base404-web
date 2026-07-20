@@ -12,8 +12,8 @@ function getSiteUrl() {
 
 export const metadata: Metadata = {
   title: {
-    default: "VimazDev — Códigos de error de electrodomésticos",
-    template: "%s | VimazDev",
+    default: "Vimazdev — Códigos de error de electrodomésticos",
+    template: "%s | Vimazdev",
   },
   description:
     "Encuentra soluciones paso a paso para los códigos de error de lavadoras, lavavajillas, hornos y más.",
@@ -29,6 +29,15 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+    ],
+    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
+  },
+  manifest: "/site.webmanifest",
 };
 
 export default function RootLayout({

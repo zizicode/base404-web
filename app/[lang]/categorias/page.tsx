@@ -7,7 +7,8 @@ import {
   Terminal, 
   Layout, 
   Cpu,
-  ScanBarcode
+  ScanBarcode,
+  ArrowRight
 } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 import { getDictionary } from '@/dictionaries/dictionaries';
@@ -60,6 +61,19 @@ export default async function CategoriasPage({ params }: PageProps) {
   ]);
   const d = dict.browse;
 
+  const sorted = categories
+    .slice()
+    .sort((a, b) => a.name.localeCompare(b.name, locale));
+
+  const grouped = sorted.reduce<Record<string, typeof categories>>((acc, cat) => {
+    const letter = cat.name.charAt(0).toUpperCase();
+    if (!acc[letter]) acc[letter] = [];
+    acc[letter].push(cat);
+    return acc;
+  }, {});
+
+  const letters = Object.keys(grouped).sort((a, b) => a.localeCompare(b, locale));
+
   return (
     <main className={styles.page}>
       <div className="container">
@@ -70,27 +84,60 @@ export default async function CategoriasPage({ params }: PageProps) {
           badge={String(categories.length)}
         />
 
-        <ul className={styles.grid} role="list">
-          {categories.map(({ slug, name, icon }) => {
-            const Icon = ICON_MAP[icon] ?? ICON_MAP[slug] ?? Cpu;
-            return (
-              <li key={slug}>
-                <Link
-                  href={`/${locale}/categorias/${slug}`}
-                  className={styles.card}
-                  aria-label={name}
-                >
-                  <span className={styles.iconWrap} aria-hidden="true">
-                    <Icon size={28} />
-                  </span>
-                  <span className={styles.info}>
-                    <span className={styles.name}>{name}</span>
-                  </span>
-                </Link>
-              </li>
-            );
-          })}
-        </ul>
+        <nav className={styles.alphaNav} aria-label={locale === 'es' ? 'Índice alfabético' : 'Alphabetical index'}>
+          <div className={styles.alphaTrack}>
+            {letters.map((letter) => (
+              <a
+                key={letter}
+                href={`#letter-${letter}`}
+                className={styles.alphaPill}
+                aria-label={`${locale === 'es' ? 'Ir a' : 'Go to'} ${letter}`}
+              >
+                {letter}
+              </a>
+            ))}
+          </div>
+        </nav>
+
+        <div className={styles.groups}>
+          {letters.map((letter) => (
+            <section
+              key={letter}
+              id={`letter-${letter}`}
+              className={styles.group}
+              aria-labelledby={`letter-title-${letter}`}
+            >
+              <header className={styles.groupHeader}>
+                <span className={styles.letterBadge}>{letter}</span>
+                <h2 id={`letter-title-${letter}`} className={styles.letterTitle}>
+                  {locale === 'es' ? 'Categorías' : 'Categories'}
+                </h2>
+                <span className={styles.letterCount}>{grouped[letter].length}</span>
+              </header>
+
+              <ul className={styles.grid} role="list">
+                {grouped[letter].map(({ slug, name, icon }) => {
+                  const Icon = ICON_MAP[icon] ?? ICON_MAP[slug] ?? Cpu;
+                  return (
+                    <li key={slug}>
+                      <Link
+                        href={`/${locale}/categorias/${slug}`}
+                        className={styles.card}
+                        aria-label={name}
+                      >
+                        <span className={styles.iconWrap} aria-hidden="true">
+                          <Icon size={20} />
+                        </span>
+                        <span className={styles.name}>{name}</span>
+                        <ArrowRight size={16} className={styles.arrow} aria-hidden="true" />
+                      </Link>
+                    </li>
+                  );
+                })}
+              </ul>
+            </section>
+          ))}
+        </div>
       </div>
     </main>
   );

@@ -122,19 +122,6 @@
   line-height: v.$leading-relaxed;
 }
 
-.engagement {
-  @include m.flex(row, flex-start, center, v.$space-4);
-  padding-top: v.$space-2;
-  border-top: 1px solid v.$color-border;
-  width: 100%;
-}
-
-.engageStat {
-  @include m.flex(row, flex-start, center, v.$space-1);
-  font-size: v.$text-sm;
-  color: v.$color-muted-foreground;
-}
-
 // ── Generic section ────────────────────────────────────────────────────────────
 .section {
   @include m.card(v.$space-6);

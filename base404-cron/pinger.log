@@ -1,0 +1,6 @@
+2026-07-19 23:23:27 [INFO] Iniciando health-pinger -> https://api.vimazdev.com/v1/health cada 15.0 min
+2026-07-19 23:23:27 [WARNING] FAIL status=404 tiempo=209.9ms body={'success': False, 'error': 'Ruta no encontrada'}
+2026-07-19 23:23:31 [INFO] Señal 2 recibida, cerrando el pinger...
+2026-07-19 23:23:31 [INFO] health-pinger detenido.
+2026-07-19 23:23:40 [INFO] Iniciando health-pinger -> https://api.vimazdev.com/health cada 15.0 min
+2026-07-19 23:23:41 [INFO] OK  status=200 tiempo=506.0ms body={'success': True, 'status': 'ok', 'env': 'production', 'timestamp': '2026-07-20T03:23:42.588Z'}

@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { Printer } from 'lucide-react';
 import type { Locale } from '@/lib/i18n';
 import type { Dictionary } from '@/dictionaries/dictionaries';
 import type { ErrorsListItem } from '@/lib/api/types';
@@ -73,19 +74,23 @@ export default function Hero({ locale, dict, popularGuides }: Props) {
         </div>
 
         <div className={styles.visual} aria-hidden="true">
-          <div className={styles.phone}>
-            <div className={styles.phoneTop}>
-              <span className={styles.phoneDot} />
-              <span className={styles.phoneBar} />
+          <div className={styles.printerCard}>
+            <div className={styles.printerHeader}>
+              <span className={styles.printerIcon}>
+                <Printer size={42} strokeWidth={1.8} />
+              </span>
+              <span className={styles.printerBrand}>HP</span>
             </div>
-            <div className={styles.phoneScreen}>
-              <span className={styles.bubble}>CODE: 1E</span>
-              <span className={styles.bubble}>Samsung</span>
-              <span className={styles.bubble}>Lavadora</span>
-              <div className={styles.phoneResult}>
-                <span className={styles.phoneLine} />
-                <span className={styles.phoneLineShort} />
-              </div>
+
+            <div className={styles.printerBody}>
+              <span className={styles.errorLabel}>Código de error</span>
+              <span className={styles.errorCode}>E0</span>
+            </div>
+
+            <div className={styles.printerSteps}>
+              <span className={styles.stepLine} />
+              <span className={styles.stepLine} />
+              <span className={styles.stepLineShort} />
             </div>
           </div>
         </div>

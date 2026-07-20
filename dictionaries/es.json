@@ -10,7 +10,7 @@
     "closeMenu": "Cerrar menú",
     "switchToEn": "Cambiar a inglés",
     "switchToEs": "Cambiar a español",
-    "logoAlt": "Base404 — Inicio"
+    "logoAlt": "Vimazdev — Inicio"
   },
   "hero": {
     "eyebrow": "+12 000 guías disponibles",
@@ -112,6 +112,7 @@
     "showingOf": "Mostrando {{shown}} de {{total}}"
   },
   "footer": {
+    "logoAlt": "Vimazdev — Inicio",
     "tagline": "Soluciones paso a paso para los códigos de error de tus impresoras y escáneres. Rápido, claro y sin tecnicismos.",
     "socialRedes": "Síguenos en redes",
     "socialYoutube": "Canal de YouTube",

@@ -18,6 +18,7 @@ function fmt(n: number): string {
 }
 
 export default function TrustStats({ dict, apiStats }: Props) {
+  console.log(apiStats)
   const stats = [
     {
       value: apiStats ? fmt(apiStats.errors) : dict.guides,

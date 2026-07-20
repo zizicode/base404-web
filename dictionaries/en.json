@@ -10,7 +10,7 @@
     "closeMenu": "Close menu",
     "switchToEn": "Switch to English",
     "switchToEs": "Switch to Spanish",
-    "logoAlt": "Base404 — Home"
+    "logoAlt": "Vimazdev — Home"
   },
   "hero": {
     "eyebrow": "+12,000 guides available",
@@ -112,6 +112,7 @@
     "showingOf": "Showing {{shown}} of {{total}}"
   },
   "footer": {
+    "logoAlt": "Vimazdev — Home",
     "tagline": "Step-by-step solutions for your printer and scanner error codes. Fast, clear, and jargon-free.",
     "socialRedes": "Follow us",
     "socialYoutube": "YouTube Channel",

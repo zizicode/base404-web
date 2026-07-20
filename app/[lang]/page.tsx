@@ -21,7 +21,7 @@ export function generateStaticParams() {
 }
 
 export const metadata: Metadata = {
-  title: "VimazDev — Códigos de error de electrodomésticos",
+  title: "Vimazdev — Códigos de error de electrodomésticos",
   description:
     "Encuentra soluciones paso a paso para los códigos de error de lavadoras, refrigeradores, hornos y más. Guías claras con causas, pasos y videos.",
 };

@@ -1,0 +1,12 @@
+services:
+  - type: worker
+    name: health-pinger
+    env: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: python pinger.py
+    envVars:
+      - key: API_URL
+        value: https://api.vimazdev.com
+      - key: INTERVAL_MINUTES
+        value: "15"
