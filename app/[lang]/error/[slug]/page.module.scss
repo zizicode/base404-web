@@ -175,21 +175,83 @@
   line-height: v.$leading-relaxed;
   color: v.$color-foreground;
 
-  h1, h2, h3 {
+  h1, h2, h3, h4, h5, h6 {
     font-weight: v.$font-semibold;
     margin-top: v.$space-4;
     margin-bottom: v.$space-2;
     color: v.$color-foreground;
   }
-  h2 { font-size: v.$text-base; }
-  h3 { font-size: v.$text-sm; }
+  h1 { font-size: v.$text-xl; }
+  h2 { font-size: v.$text-lg; }
+  h3 { font-size: v.$text-base; }
+  h4, h5, h6 { font-size: v.$text-sm; }
 
   p { margin-bottom: v.$space-3; }
 
-  ul {
+  a {
+    color: v.$color-primary;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    &:hover { opacity: 0.85; }
+  }
+
+  ul, ol {
     padding-left: v.$space-5;
     margin-bottom: v.$space-3;
-    li { margin-bottom: v.$space-1; }
+    li { margin-bottom: v.$space-2; }
+  }
+
+  ul { list-style-type: disc; }
+  ol { list-style-type: decimal; }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    border-radius: v.$radius-md;
+    margin: v.$space-3 0;
+  }
+
+  blockquote {
+    margin: v.$space-3 0;
+    padding: v.$space-3 v.$space-4;
+    border-left: 3px solid v.$color-primary;
+    background-color: v.$color-muted;
+    border-radius: 0 v.$radius-md v.$radius-md 0;
+    color: v.$color-muted-foreground;
+    font-style: italic;
+  }
+
+  hr {
+    border: none;
+    border-top: 1px solid v.$color-border;
+    margin: v.$space-4 0;
+  }
+
+  code {
+    display: inline-block;
+    padding: 2px v.$space-1;
+    border-radius: v.$radius-sm;
+    background-color: v.$color-muted;
+    color: v.$color-primary;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    font-size: 0.9em;
+  }
+
+  pre {
+    padding: v.$space-3;
+    border-radius: v.$radius-md;
+    background-color: #1e293b;
+    color: #f8fafc;
+    overflow-x: auto;
+    margin-bottom: v.$space-3;
+
+    code {
+      display: block;
+      padding: 0;
+      background-color: transparent;
+      color: inherit;
+      font-size: v.$text-xs;
+    }
   }
 
   strong { font-weight: v.$font-semibold; }
@@ -294,31 +356,6 @@
   width: 100%;
   height: 100%;
   border: none;
-}
-
-// FAQs
-.faqList {
-  @include m.flex(column, flex-start, stretch, v.$space-3);
-}
-
-.faqItem {
-  @include m.flex(column, flex-start, stretch, v.$space-2);
-  padding: v.$space-4;
-  border-radius: v.$radius-md;
-  background-color: v.$color-muted;
-  border: 1px solid v.$color-border;
-}
-
-.faqQ {
-  font-size: v.$text-sm;
-  font-weight: v.$font-semibold;
-  color: v.$color-foreground;
-}
-
-.faqA {
-  font-size: v.$text-sm;
-  color: v.$color-muted-foreground;
-  line-height: v.$leading-relaxed;
 }
 
 // ── Sidebar ────────────────────────────────────────────────────────────────────

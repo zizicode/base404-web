@@ -82,7 +82,7 @@ export default function CategoriesGrid({ locale, dict, categories }: Props) {
         <div className={styles.fadeLeft}  aria-hidden="true" />
         <div className={styles.fadeRight} aria-hidden="true" />
 
-        <div className={styles.track}>
+        <div className={styles.track} style={{ '--duration': `${track.length}s` } as React.CSSProperties}>
           {track.map(({ slug, name, icon }, i) => {
             const Icon = getIcon(icon, slug);
             return (

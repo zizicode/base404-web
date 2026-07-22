@@ -1,0 +1,73 @@
+@use "../../styles/variables" as v;
+@use "../../styles/mixins" as m;
+
+.section {
+  @include m.card(v.$space-6);
+  @include m.flex(column, flex-start, stretch, v.$space-4);
+}
+
+.sectionTitle {
+  @include m.flex(row, flex-start, center, v.$space-2);
+  font-size: v.$text-lg;
+  font-weight: v.$font-semibold;
+  color: v.$color-foreground;
+}
+
+.iconPrimary { color: v.$color-primary; }
+
+.faqList {
+  @include m.flex(column, flex-start, stretch, v.$space-2);
+}
+
+.faqItem {
+  border-radius: v.$radius-md;
+  background-color: v.$color-muted;
+  border: 1px solid v.$color-border;
+  overflow: hidden;
+}
+
+.faqTrigger {
+  @include m.flex(row, space-between, center, v.$space-3);
+  width: 100%;
+  padding: v.$space-4;
+  background: transparent;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  color: v.$color-foreground;
+
+  &:hover { background-color: rgba(v.$color-primary, 0.04); }
+  &:focus-visible { @include m.focus-ring; }
+}
+
+.faqQ {
+  font-size: v.$text-sm;
+  font-weight: v.$font-semibold;
+  line-height: v.$leading-snug;
+}
+
+.faqIcon {
+  flex-shrink: 0;
+  color: v.$color-muted-foreground;
+  transition: transform v.$transition-fast;
+}
+
+.faqIconOpen { transform: rotate(180deg); }
+
+.faqAnswer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height v.$transition-fast;
+}
+
+.faqAnswerOpen {
+  max-height: 1000px;
+}
+
+.faqA {
+  padding: 0 v.$space-4 v.$space-4;
+  margin: 0;
+  font-size: v.$text-sm;
+  color: v.$color-muted-foreground;
+  line-height: v.$leading-relaxed;
+}

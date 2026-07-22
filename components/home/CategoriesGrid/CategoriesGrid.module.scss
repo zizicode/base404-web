@@ -58,7 +58,7 @@
   gap: v.$space-4;
   width: max-content;
   padding: v.$space-3 0 v.$space-4;
-  animation: marquee 100s linear infinite;
+  animation: marquee var(--duration, 120s) linear infinite;
   will-change: transform;
 
   @media (prefers-reduced-motion: reduce) {

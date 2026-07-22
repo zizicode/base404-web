@@ -4,3 +4,27 @@
 2026-07-19 23:23:31 [INFO] health-pinger detenido.
 2026-07-19 23:23:40 [INFO] Iniciando health-pinger -> https://api.vimazdev.com/health cada 15.0 min
 2026-07-19 23:23:41 [INFO] OK  status=200 tiempo=506.0ms body={'success': True, 'status': 'ok', 'env': 'production', 'timestamp': '2026-07-20T03:23:42.588Z'}
+2026-07-19 23:38:45 [INFO] OK  status=200 tiempo=3736.1ms body={'success': True, 'status': 'ok', 'env': 'production', 'timestamp': '2026-07-20T03:38:46.979Z'}
+2026-07-19 23:53:52 [INFO] OK  status=200 tiempo=7325.5ms body={'success': True, 'status': 'ok', 'env': 'production', 'timestamp': '2026-07-20T03:53:54.683Z'}
+2026-07-20 00:08:54 [INFO] OK  status=200 tiempo=1447.0ms body={'success': True, 'status': 'ok', 'env': 'production', 'timestamp': '2026-07-20T04:08:56.500Z'}
+2026-07-20 00:23:57 [INFO] OK  status=200 tiempo=2849.6ms body={'success': True, 'status': 'ok', 'env': 'production', 'timestamp': '2026-07-20T04:23:59.725Z'}
+2026-07-20 00:39:01 [INFO] OK  status=200 tiempo=3219.2ms body={'success': True, 'status': 'ok', 'env': 'production', 'timestamp': '2026-07-20T04:39:03.316Z'}
+2026-07-20 00:54:02 [INFO] OK  status=200 tiempo=600.6ms body={'success': True, 'status': 'ok', 'env': 'production', 'timestamp': '2026-07-20T04:54:04.287Z'}
+2026-07-20 01:09:03 [INFO] OK  status=200 tiempo=319.9ms body={'success': True, 'status': 'ok', 'env': 'production', 'timestamp': '2026-07-20T05:09:04.985Z'}
+2026-07-20 01:24:05 [INFO] OK  status=200 tiempo=2137.0ms body={'success': True, 'status': 'ok', 'env': 'production', 'timestamp': '2026-07-20T05:24:07.493Z'}
+2026-07-20 01:39:13 [INFO] OK  status=200 tiempo=7298.7ms body={'success': True, 'status': 'ok', 'env': 'production', 'timestamp': '2026-07-20T05:39:15.172Z'}
+2026-07-20 01:54:23 [ERROR] ERROR al consultar https://api.vimazdev.com/health tras 10149.2ms -> HTTPSConnectionPool(host='api.vimazdev.com', port=443): Read timed out. (read timeout=10.0)
+2026-07-20 02:09:36 [ERROR] ERROR al consultar https://api.vimazdev.com/health tras 12004.7ms -> HTTPSConnectionPool(host='api.vimazdev.com', port=443): Read timed out. (read timeout=10.0)
+2026-07-20 02:24:48 [ERROR] ERROR al consultar https://api.vimazdev.com/health tras 12065.6ms -> HTTPSConnectionPool(host='api.vimazdev.com', port=443): Read timed out. (read timeout=10.0)
+2026-07-20 02:39:52 [INFO] OK  status=200 tiempo=3873.4ms body={'success': True, 'status': 'ok', 'env': 'production', 'timestamp': '2026-07-20T06:39:54.765Z'}
+2026-07-20 02:55:03 [ERROR] ERROR al consultar https://api.vimazdev.com/health tras 10176.5ms -> HTTPSConnectionPool(host='api.vimazdev.com', port=443): Read timed out. (read timeout=10.0)
+2026-07-20 03:00:19 [INFO] Señal 2 recibida, cerrando el pinger...
+2026-07-20 03:00:19 [INFO] health-pinger detenido.
+2026-07-20 03:00:21 [INFO] Iniciando health-pinger -> https://api.vimazdev.com/health cada 15.0 min
+2026-07-20 03:00:24 [INFO] OK  status=200 tiempo=2990.7ms body={'success': True, 'status': 'ok', 'env': 'production', 'timestamp': '2026-07-20T07:00:26.416Z'}
+2026-07-20 03:15:28 [INFO] OK  status=200 tiempo=1239.0ms body={'success': True, 'status': 'ok', 'env': 'production', 'timestamp': '2026-07-20T07:15:28.026Z'}
+2026-07-20 03:30:28 [INFO] OK  status=200 tiempo=371.3ms body={'success': True, 'status': 'ok', 'env': 'production', 'timestamp': '2026-07-20T07:30:28.764Z'}
+2026-07-20 03:45:30 [INFO] OK  status=200 tiempo=1266.9ms body={'success': True, 'status': 'ok', 'env': 'production', 'timestamp': '2026-07-20T07:45:30.407Z'}
+2026-07-20 04:00:31 [INFO] OK  status=200 tiempo=350.0ms body={'success': True, 'status': 'ok', 'env': 'production', 'timestamp': '2026-07-20T08:00:31.129Z'}
+2026-07-20 04:15:31 [INFO] OK  status=200 tiempo=292.1ms body={'success': True, 'status': 'ok', 'env': 'production', 'timestamp': '2026-07-20T08:15:31.810Z'}
+2026-07-20 04:30:32 [INFO] OK  status=200 tiempo=286.0ms body={'success': True, 'status': 'ok', 'env': 'production', 'timestamp': '2026-07-20T08:30:32.467Z'}
