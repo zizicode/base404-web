@@ -5,7 +5,6 @@ export interface SiteStats {
   errors: number;
   brands: number;
   categories: number;
-  votes?: number;
 }
 
 export async function getStats(): Promise<SiteStats | null> {

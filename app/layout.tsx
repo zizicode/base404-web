@@ -10,14 +10,41 @@ function getSiteUrl() {
   return raw.startsWith("http://") || raw.startsWith("https://") ? raw : `https://${raw}`;
 }
 
+const siteUrl = getSiteUrl();
+const siteName = "Vimazdev";
+const defaultTitle = "Vimazdev — Soluciona Códigos de Error de Impresoras";
+const defaultDescription =
+  "Encontrá qué significa cada código de error de tu impresora, por qué ocurre y cómo solucionarlo paso a paso, por marca y modelo: HP, Epson, Brother, Canon, Fujitsu y más.";
+const ogImage = "/og-image.jpg"; // reemplazá por tu imagen real de 1200x630
+
 export const metadata: Metadata = {
   title: {
-    default: "Vimazdev — Códigos de error de electrodomésticos",
+    default: defaultTitle,
     template: "%s | Vimazdev",
   },
-  description:
-    "Encuentra soluciones paso a paso para los códigos de error de lavadoras, lavavajillas, hornos y más.",
-  metadataBase: new URL(getSiteUrl()),
+  description: defaultDescription,
+  keywords: [
+    "códigos de error impresora",
+    "cómo solucionar error de impresora",
+    "qué significa el error de mi impresora",
+    "error impresora HP",
+    "error impresora Epson",
+    "error impresora Brother",
+    "error impresora Canon",
+    "error impresora matricial",
+    "atasco de papel solución",
+    "impresora no imprime error",
+    "diagnóstico de fallas impresora",
+    "reparar impresora",
+    "tóner y cartucho compatible",
+    "guía de reparación paso a paso",
+  ],
+  applicationName: siteName,
+  authors: [{ name: siteName, url: siteUrl }],
+  creator: siteName,
+  publisher: siteName,
+  category: "technology",
+  metadataBase: new URL(siteUrl),
   alternates: {
     canonical: "/",
     languages: {
@@ -25,9 +52,42 @@ export const metadata: Metadata = {
       en: "/en",
     },
   },
+  openGraph: {
+    type: "website",
+    url: siteUrl,
+    siteName,
+    locale: "es_ES",
+    alternateLocale: ["en_US"],
+    title: defaultTitle,
+    description: defaultDescription,
+    images: [
+      {
+        url: ogImage,
+        width: 1200,
+        height: 630,
+        alt: `${siteName} — Códigos de error de impresoras`,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: defaultTitle,
+    description: defaultDescription,
+    images: [ogImage],
+  },
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-snippet": -1,
+      "max-image-preview": "large",
+      "max-video-preview": -1,
+    },
+  },
+  formatDetection: {
+    telephone: false,
   },
   icons: {
     icon: [
@@ -46,7 +106,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="es" suppressHydrationWarning>
       <head>
         {/* Google tag (gtag.js) */}
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-RFE65C9EFH" />

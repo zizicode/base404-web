@@ -20,11 +20,57 @@ export function generateStaticParams() {
   return [{ lang: 'es' }, { lang: 'en' }];
 }
 
-export const metadata: Metadata = {
-  title: "Vimazdev — Códigos de error de electrodomésticos",
-  description:
-    "Encuentra soluciones paso a paso para los códigos de error de lavadoras, refrigeradores, hornos y más. Guías claras con causas, pasos y videos.",
+const HOME_COPY: Record<Locale, { title: string; description: string; ogLocale: string; altLocale: string }> = {
+  es: {
+    title: "Vimazdev — Soluciona Códigos de Error de Impresoras",
+    description:
+      "Encontrá qué significa cada código de error de tu impresora, por qué ocurre y cómo solucionarlo paso a paso, por marca y modelo: HP, Epson, Brother, Canon, Fujitsu y más.",
+    ogLocale: "es_ES",
+    altLocale: "en_US",
+  },
+  en: {
+    title: "Vimazdev — Fix Printer Error Codes",
+    description:
+      "Find out what your printer's error code means, why it happens, and how to fix it step by step, by brand and model: HP, Epson, Brother, Canon, Fujitsu and more.",
+    ogLocale: "en_US",
+    altLocale: "es_ES",
+  },
 };
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ lang: string }>;
+}): Promise<Metadata> {
+  const { lang } = await params;
+  const locale: Locale = isValidLocale(lang) ? (lang as Locale) : "es";
+  const copy = HOME_COPY[locale];
+
+  return {
+    title: copy.title,
+    description: copy.description,
+    alternates: {
+      canonical: `/${locale}`,
+      languages: {
+        es: "/es",
+        en: "/en",
+      },
+    },
+    openGraph: {
+      type: "website",
+      url: `/${locale}`,
+      locale: copy.ogLocale,
+      alternateLocale: [copy.altLocale],
+      title: copy.title,
+      description: copy.description,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: copy.title,
+      description: copy.description,
+    },
+  };
+}
 
 export default async function HomePage({ params }: { params: Promise<{ lang: string }> }) {
   const { lang } = await params;

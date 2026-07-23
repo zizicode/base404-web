@@ -10,7 +10,7 @@ export default function Footer() {
             Vimaz<span className={styles.logoAccent}>Dev</span>
           </Link>
           <p className={styles.tagline}>
-            Soluciones paso a paso para códigos de error de electrodomésticos.
+            Soluciones paso a paso para códigos de error de impresoras.
           </p>
         </div>
 

@@ -8,25 +8,91 @@ import PageTransition from "@/components/page-transition/PageTransition";
 import { getDictionary } from "@/dictionaries/dictionaries";
 import { isValidLocale, type Locale } from "@/lib/i18n";
 
-export const metadata: Metadata = {
-  title: {
-    default: "Vimazdev — Códigos de error de electrodomésticos",
+const SITE_NAME = "Vimazdev";
+
+const COPY: Record<Locale, { title: string; template: string; description: string; ogLocale: string; altLocale: string }> = {
+  es: {
+    title: "Vimazdev — Soluciona Códigos de Error de Impresoras",
     template: "%s | Vimazdev",
+    description:
+      "Encontrá qué significa cada código de error de tu impresora, por qué ocurre y cómo solucionarlo paso a paso, por marca y modelo: HP, Epson, Brother, Canon, Fujitsu y más.",
+    ogLocale: "es_ES",
+    altLocale: "en_US",
   },
-  description:
-    "Encuentra soluciones paso a paso para los códigos de error de lavadoras, lavavajillas, hornos y más. Guías claras con causas, pasos y videos.",
-  alternates: {
-    canonical: "/",
-    languages: {
-      es: "/es",
-      en: "/en",
-    },
-  },
-  robots: {
-    index: true,
-    follow: true,
+  en: {
+    title: "Vimazdev — Fix Printer Error Codes",
+    template: "%s | Vimazdev",
+    description:
+      "Find out what your printer's error code means, why it happens, and how to fix it step by step, by brand and model: HP, Epson, Brother, Canon, Fujitsu and more.",
+    ogLocale: "en_US",
+    altLocale: "es_ES",
   },
 };
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ lang: string }>;
+}): Promise<Metadata> {
+  const { lang } = await params;
+  const locale: Locale = isValidLocale(lang) ? (lang as Locale) : "es";
+  const copy = COPY[locale];
+
+  return {
+    title: {
+      default: copy.title,
+      template: copy.template,
+    },
+    description: copy.description,
+    keywords: [
+      "códigos de error impresora",
+      "cómo solucionar error de impresora",
+      "qué significa el error de mi impresora",
+      "error impresora HP",
+      "error impresora Epson",
+      "error impresora Brother",
+      "error impresora Canon",
+      "error impresora matricial",
+      "atasco de papel solución",
+      "impresora no imprime error",
+      "diagnóstico de fallas impresora",
+      "reparar impresora",
+      "tóner y cartucho compatible",
+      "guía de reparación paso a paso",
+    ],
+    alternates: {
+      canonical: `/${locale}`,
+      languages: {
+        es: "/es",
+        en: "/en",
+      },
+    },
+    openGraph: {
+      type: "website",
+      locale: copy.ogLocale,
+      alternateLocale: [copy.altLocale],
+      siteName: SITE_NAME,
+      title: copy.title,
+      description: copy.description,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: copy.title,
+      description: copy.description,
+    },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        "max-snippet": -1,
+        "max-image-preview": "large",
+        "max-video-preview": -1,
+      },
+    },
+  };
+}
 
 export default async function LangLayout({
   children,
