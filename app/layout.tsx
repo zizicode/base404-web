@@ -16,8 +16,8 @@ const siteUrl = getSiteUrl();
 const siteName = "Vimazdev";
 const defaultTitle = "Vimazdev — Soluciona Códigos de Error de Impresoras";
 const defaultDescription =
-  "Encontrá qué significa cada código de error de tu impresora, por qué ocurre y cómo solucionarlo paso a paso, por marca y modelo: HP, Epson, Brother, Canon, Fujitsu y más.";
-const ogImage = "/og-image.jpg"; // reemplazá por tu imagen real de 1200x630
+  "Descubrí qué significa cada código de error de tu impresora, por qué ocurre y cómo solucionarlo paso a paso: HP, Epson, Brother, Canon, Fujitsu y más.";
+const ogImage = "/og.png"; // reemplazá por tu imagen real de 1200x630
 
 export const metadata: Metadata = {
   title: {

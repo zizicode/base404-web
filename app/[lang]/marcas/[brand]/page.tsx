@@ -55,6 +55,7 @@ export default async function BrandPage({ params }: PageProps) {
   const categoryNames = Object.fromEntries(
     Object.entries(dict.categories.items).map(([slug, v]) => [slug, (v as { name: string }).name])
   );
+  
 
   return (
     <main className={styles.page}>

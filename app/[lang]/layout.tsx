@@ -15,7 +15,7 @@ const COPY: Record<Locale, { title: string; template: string; description: strin
     title: "Vimazdev — Soluciona Códigos de Error de Impresoras",
     template: "%s | Vimazdev",
     description:
-      "Encontrá qué significa cada código de error de tu impresora, por qué ocurre y cómo solucionarlo paso a paso, por marca y modelo: HP, Epson, Brother, Canon, Fujitsu y más.",
+      "Descubrí qué significa cada código de error de tu impresora, por qué ocurre y cómo solucionarlo paso a paso: HP, Epson, Brother, Canon, Fujitsu y más.",
     ogLocale: "es_ES",
     altLocale: "en_US",
   },
@@ -23,7 +23,7 @@ const COPY: Record<Locale, { title: string; template: string; description: strin
     title: "Vimazdev — Fix Printer Error Codes",
     template: "%s | Vimazdev",
     description:
-      "Find out what your printer's error code means, why it happens, and how to fix it step by step, by brand and model: HP, Epson, Brother, Canon, Fujitsu and more.",
+      "Find out what each printer error code means, why it happens, and how to fix it, by brand and model: HP, Epson, Brother, Canon, Fujitsu, and more.",
     ogLocale: "en_US",
     altLocale: "es_ES",
   },
