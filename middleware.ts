@@ -30,12 +30,22 @@ export function middleware(request: NextRequest): NextResponse {
     (loc) => pathname === `/${loc}` || pathname.startsWith(`/${loc}/`),
   );
 
-  if (hasLocale) return NextResponse.next();
+  const locale = hasLocale
+    ? pathname.split('/')[1]
+    : getPreferredLocale(request);
 
-  const locale = getPreferredLocale(request);
+  const requestHeaders = new Headers(request.headers);
+  requestHeaders.set('x-locale', locale);
+
+  if (hasLocale) {
+    return NextResponse.next({ request: { headers: requestHeaders } });
+  }
+
   const redirectUrl = new URL(`/${locale}${pathname}`, request.url);
 
-  const response = NextResponse.redirect(redirectUrl);
+  const response = NextResponse.redirect(redirectUrl, {
+    headers: requestHeaders,
+  });
   response.cookies.set(COOKIE_NAME, locale, {
     path: '/',
     maxAge: 60 * 60 * 24 * 365,

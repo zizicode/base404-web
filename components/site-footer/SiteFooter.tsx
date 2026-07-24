@@ -56,29 +56,10 @@ export default function SiteFooter({ locale, dict }: Props) {
           </ul>
         </nav>
 
-        {/* Categories */}
-        <nav className={styles.col} aria-label={dict.categories}>
-          <h3 className={styles.colTitle}>{dict.categories}</h3>
-          <ul className={styles.colList}>
-            {dict.categories_list.map((cat: string, i: number) => (
-              <li key={i}>
-                <Link
-                  href={`${p}/categorias/${cat.toLowerCase().replace(/\s+/g, '-')}`}
-                  className={styles.colLink}
-                >
-                  {cat}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </nav>
-
         {/* Resources + Legal */}
         <nav className={styles.col} aria-label={dict.resources}>
           <h3 className={styles.colTitle}>{dict.resources}</h3>
           <ul className={styles.colList}>
-            <li><Link href={`${p}/blog`} className={styles.colLink}>{dict.resources_links.blog}</Link></li>
-            <li><Link href={`${p}/como-funciona`} className={styles.colLink}>{dict.resources_links.howItWorks}</Link></li>
             <li><Link href={`${p}/contacto`} className={styles.colLink}>{dict.resources_links.contact}</Link></li>
           </ul>
 

@@ -47,8 +47,13 @@ const ICON_MAP: Record<string, LucideIcon> = {
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { lang } = await params;
-  const dict = await getDictionary(isValidLocale(lang) ? lang as Locale : 'es');
-  return { title: dict.browse.allCategoriesTitle };
+  const locale = isValidLocale(lang) ? (lang as Locale) : 'es';
+  const dict = await getDictionary(locale);
+  return {
+    title: dict.browse.allCategoriesTitle,
+    description: dict.browse.allCategoriesSubtitle,
+    alternates: { canonical: `/${locale}/categorias` },
+  };
 }
 
 export default async function CategoriasPage({ params }: PageProps) {

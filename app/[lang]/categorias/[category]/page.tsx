@@ -24,7 +24,10 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     getCategoryBySlug(category, lang),
   ]);
   if (!catData) return {};
-  return { title: dict.browse.categoryTitle.replace('{{name}}', catData.name) };
+  return {
+    title: dict.browse.categoryTitle.replace('{{name}}', catData.name),
+    alternates: { canonical: `/${lang}/categorias/${catData.slug}` },
+  };
 }
 
 export default async function CategoryPage({ params }: PageProps) {

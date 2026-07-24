@@ -19,7 +19,7 @@
   }
 
   @include m.bp(lg) {
-    grid-template-columns: 2fr 1fr 1fr 1fr;
+    grid-template-columns: 2fr 1fr 1fr;
     padding-inline: v.$space-6;
   }
 }

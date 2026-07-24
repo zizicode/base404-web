@@ -15,10 +15,20 @@ interface PageProps {
   searchParams: Promise<{ q?: string; brand?: string; category?: string; sort?: string }>;
 }
 
-export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+export async function generateMetadata({ params, searchParams }: PageProps): Promise<Metadata> {
   const { lang } = await params;
+  const sp = await searchParams;
+  const hasFilters = sp.q || sp.brand || sp.category;
+  const title = lang === 'es' ? 'Buscar errores' : 'Search errors';
+
   return {
-    title: lang === 'es' ? 'Buscar errores' : 'Search errors',
+    title,
+    description:
+      lang === 'es'
+        ? 'Buscá códigos de error de impresoras por marca, modelo o palabra clave.'
+        : 'Search printer error codes by brand, model or keyword.',
+    alternates: { canonical: `/${lang}/buscar` },
+    ...(hasFilters && { robots: { index: false, follow: true } }),
   };
 }
 

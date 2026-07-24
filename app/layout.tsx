@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
+import { headers } from "next/headers";
 import { Roboto } from "next/font/google";
 import "@/styles/global.scss";
+import { DEFAULT_LOCALE, isValidLocale } from "@/lib/i18n";
 
 const roboto = Roboto({ subsets: ["latin"], weight: ["400", "500", "700"], display: "swap" });
 
@@ -24,6 +26,7 @@ export const metadata: Metadata = {
   },
   description: defaultDescription,
   keywords: [
+    // Español
     "códigos de error impresora",
     "cómo solucionar error de impresora",
     "qué significa el error de mi impresora",
@@ -38,6 +41,22 @@ export const metadata: Metadata = {
     "reparar impresora",
     "tóner y cartucho compatible",
     "guía de reparación paso a paso",
+
+    // English
+    "printer error codes",
+    "how to fix printer error",
+    "what does my printer error mean",
+    "HP printer error",
+    "Epson printer error",
+    "Brother printer error",
+    "Canon printer error",
+    "dot matrix printer error",
+    "paper jam fix",
+    "printer not printing error",
+    "printer troubleshooting",
+    "how to repair printer",
+    "compatible toner and cartridge",
+    "step by step repair guide",
   ],
   applicationName: siteName,
   authors: [{ name: siteName, url: siteUrl }],
@@ -84,6 +103,11 @@ export const metadata: Metadata = {
       "max-snippet": -1,
       "max-image-preview": "large",
       "max-video-preview": -1,
+    },
+  },
+  verification: {
+    other: {
+      "msvalidate.01": "E9614E98D4145A5C957485977131C6B4",
     },
   },
   formatDetection: {

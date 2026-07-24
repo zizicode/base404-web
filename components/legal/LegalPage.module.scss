@@ -1,0 +1,99 @@
+@use "../../styles/variables" as v;
+
+.page {
+  padding: v.$space-12 0;
+}
+
+.title {
+  font-size: v.$text-2xl;
+  font-weight: v.$font-bold;
+  margin-bottom: v.$space-8;
+  color: v.$color-foreground;
+}
+
+.prose {
+  font-size: v.$text-sm;
+  line-height: v.$leading-relaxed;
+  color: v.$color-foreground;
+
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: v.$font-semibold;
+    margin-top: v.$space-4;
+    margin-bottom: v.$space-2;
+    color: v.$color-foreground;
+  }
+
+  h1 { font-size: v.$text-xl; }
+  h2 { font-size: v.$text-lg; }
+  h3 { font-size: v.$text-base; }
+  h4, h5, h6 { font-size: v.$text-sm; }
+
+  p { margin-bottom: v.$space-3; }
+
+  a {
+    color: v.$color-primary;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+
+    &:hover { opacity: 0.85; }
+  }
+
+  ul, ol {
+    padding-left: v.$space-5;
+    margin-bottom: v.$space-3;
+
+    li { margin-bottom: v.$space-2; }
+  }
+
+  ul { list-style-type: disc; }
+  ol { list-style-type: decimal; }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    border-radius: v.$radius-md;
+    margin: v.$space-3 0;
+  }
+
+  blockquote {
+    margin: v.$space-3 0;
+    padding: v.$space-3 v.$space-4;
+    border-left: 3px solid v.$color-primary;
+    background-color: v.$color-muted;
+    border-radius: 0 v.$radius-md v.$radius-md 0;
+    color: v.$color-muted-foreground;
+    font-style: italic;
+  }
+
+  hr {
+    border: none;
+    border-top: 1px solid v.$color-border;
+    margin: v.$space-4 0;
+  }
+
+  code {
+    display: inline-block;
+    padding: 2px v.$space-1;
+    border-radius: v.$radius-sm;
+    background-color: v.$color-muted;
+    color: v.$color-primary;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    font-size: 0.9em;
+  }
+
+  pre {
+    padding: v.$space-3;
+    border-radius: v.$radius-md;
+    background-color: #1e293b;
+    color: #f8fafc;
+    overflow-x: auto;
+    margin-bottom: v.$space-3;
+
+    code {
+      display: block;
+      background: transparent;
+      color: inherit;
+      padding: 0;
+    }
+  }
+}

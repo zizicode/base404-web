@@ -14,8 +14,13 @@ interface PageProps {
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { lang } = await params;
-  const dict = await getDictionary(isValidLocale(lang) ? lang as Locale : 'es');
-  return { title: dict.browse.allBrandsTitle };
+  const locale = isValidLocale(lang) ? (lang as Locale) : 'es';
+  const dict = await getDictionary(locale);
+  return {
+    title: dict.browse.allBrandsTitle,
+    description: dict.browse.allBrandsSubtitle,
+    alternates: { canonical: `/${locale}/marcas` },
+  };
 }
 
 export default async function MarcasPage({ params }: PageProps) {

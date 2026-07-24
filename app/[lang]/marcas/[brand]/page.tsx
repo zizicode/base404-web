@@ -24,7 +24,10 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     getBrandBySlug(brand),
   ]);
   if (!brandData) return {};
-  return { title: dict.browse.brandTitle.replace('{{name}}', brandData.name) };
+  return {
+    title: dict.browse.brandTitle.replace('{{name}}', brandData.name),
+    alternates: { canonical: `/${lang}/marcas/${brandData.slug}` },
+  };
 }
 
 export default async function BrandPage({ params }: PageProps) {

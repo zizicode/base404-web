@@ -61,7 +61,6 @@ export async function generateMetadata({
       "guía de reparación paso a paso",
     ],
     alternates: {
-      canonical: `/${locale}`,
       languages: {
         es: "/es",
         en: "/en",
