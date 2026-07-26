@@ -10,25 +10,71 @@ const META: Record<Locale, Metadata> = {
   es: {
     title: 'Términos y Condiciones | Vimazdev',
     description:
-      'Términos y condiciones de uso de Vimazdev. Información sobre el servicio, descargo de responsabilidad, propiedad intelectual y enlaces de afiliados.',
+      'Términos y condiciones de uso de Vimazdev. Información sobre el uso del sitio, limitación de responsabilidad y derechos de propiedad intelectual.',
     alternates: { canonical: '/es/terminos' },
+    openGraph: {
+      type: 'website',
+      url: '/es/terminos',
+      siteName: 'Vimazdev',
+      locale: 'es_ES',
+      alternateLocale: ['en_US'],
+      title: 'Términos y Condiciones | Vimazdev',
+      description:
+        'Términos y condiciones de uso de Vimazdev. Información sobre el uso del sitio, limitación de responsabilidad y derechos de propiedad intelectual.',
+      images: [
+        {
+          url: '/og.png',
+          width: 1200,
+          height: 630,
+          alt: 'Vimazdev — Términos y Condiciones',
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: 'Términos y Condiciones | Vimazdev',
+      description: 'Términos y condiciones de uso de Vimazdev.',
+      images: ['/og.png'],
+    },
   },
   en: {
     title: 'Terms and Conditions | Vimazdev',
     description:
-      'Terms and conditions of use for Vimazdev. Information about the service, disclaimer, intellectual property, and affiliate links.',
+      'Terms and conditions of use for Vimazdev. Information about site usage, liability limitation, and intellectual property rights.',
     alternates: { canonical: '/en/terminos' },
+    openGraph: {
+      type: 'website',
+      url: '/en/terminos',
+      siteName: 'Vimazdev',
+      locale: 'en_US',
+      alternateLocale: ['es_ES'],
+      title: 'Terms and Conditions | Vimazdev',
+      description:
+        'Terms and conditions of use for Vimazdev. Information about site usage, liability limitation, and intellectual property rights.',
+      images: [
+        {
+          url: '/og.png',
+          width: 1200,
+          height: 630,
+          alt: 'Vimazdev — Terms and Conditions',
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: 'Terms and Conditions | Vimazdev',
+      description: 'Terms and conditions of use for Vimazdev.',
+      images: ['/og.png'],
+    },
   },
 };
 
 const TITLES: Record<Locale, string> = {
-  es: 'Términos y Condiciones de Uso',
-  en: 'Terms and Conditions of Use',
+  es: 'Términos y Condiciones',
+  en: 'Terms and Conditions',
 };
 
-export function generateStaticParams() {
-  return [{ lang: 'es' }, { lang: 'en' }];
-}
+export const dynamic = 'force-dynamic';
 
 export async function generateMetadata({
   params,

@@ -44,6 +44,19 @@
   margin-bottom: v.$space-5;
 }
 
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: v.$space-2;
+  padding: v.$space-2 v.$space-4;
+  border-radius: v.$radius-full;
+  background-color: v.$color-primary-soft;
+  color: v.$color-primary;
+  font-size: v.$text-sm;
+  font-weight: v.$font-semibold;
+  border: 1px solid rgba(v.$color-primary, 0.15);
+}
+
 .heading {
   font-size: v.$text-3xl;
   font-weight: v.$font-bold;
@@ -59,13 +72,19 @@
 
 .headingAccent {
   color: v.$color-primary;
+  display: block;
+  margin-top: v.$space-2;
+}
+
+.headingEnd {
+  color: v.$color-foreground;
 }
 
 .subheading {
   font-size: v.$text-base;
   color: v.$color-muted-foreground;
   line-height: v.$leading-relaxed;
-  max-width: 560px;
+  max-width: 640px;
   margin-inline: auto;
   margin-bottom: v.$space-6;
 
@@ -75,9 +94,23 @@
 
 // ── Search trigger wrapper ────────────────────────────────────────────────────
 .searchWrap {
-  margin-bottom: v.$space-5;
+  margin-bottom: v.$space-6;
 
-  @include m.bp(md) { margin-bottom: v.$space-6; }
+  @include m.bp(md) { margin-bottom: v.$space-8; }
+}
+
+.searchBox {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.searchIcon {
+  position: absolute;
+  left: v.$space-4;
+  color: v.$color-muted-foreground;
+  pointer-events: none;
+  z-index: 1;
 }
 
 // ── Popular codes chips ─────────────────────────────────────────────────────
@@ -85,7 +118,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: v.$space-2;
+  gap: v.$space-3;
 
   @include m.bp(sm) {
     flex-direction: row;
@@ -97,6 +130,9 @@
 }
 
 .chipsLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: v.$space-1;
   font-size: v.$text-sm;
   color: v.$color-muted-foreground;
   font-weight: v.$font-medium;
@@ -113,30 +149,64 @@
 .chip {
   display: inline-flex;
   align-items: center;
-  height: 32px;
-  padding: 0 v.$space-3;
+  height: 36px;
+  padding: 0 v.$space-4;
   border-radius: v.$radius-full;
   border: 1px solid v.$color-border;
-  background-color: rgba(v.$color-card, 0.8);
-  backdrop-filter: blur(6px);
+  background-color: rgba(v.$color-card, 0.9);
+  backdrop-filter: blur(8px);
   font-size: v.$text-sm;
   font-weight: v.$font-semibold;
   color: v.$color-foreground;
   text-decoration: none;
-  transition:
-    border-color v.$transition-fast,
-    background-color v.$transition-fast,
-    color v.$transition-fast,
-    transform v.$transition-fast;
+  transition: all v.$transition-fast;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
 
   &:hover {
     border-color: v.$color-primary;
-    background-color: v.$color-primary-soft;
-    color: v.$color-primary;
+    background-color: v.$color-primary;
+    color: #ffffff;
     transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(v.$color-primary, 0.2);
   }
 
   &:focus-visible { @include m.focus-ring; }
+}
+
+// ── Trust indicators ─────────────────────────────────────────────────────────
+.trustIndicators {
+  display: flex;
+  flex-wrap: wrap;
+  gap: v.$space-4;
+  margin-top: v.$space-8;
+  padding-top: v.$space-6;
+  border-top: 1px solid v.$color-border;
+
+  @include m.bp(lg) {
+    justify-content: flex-start;
+  }
+}
+
+.trustItem {
+  display: inline-flex;
+  align-items: center;
+  gap: v.$space-2;
+  font-size: v.$text-sm;
+  color: v.$color-muted-foreground;
+  font-weight: v.$font-medium;
+}
+
+.trustIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: v.$color-success;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: v.$font-bold;
 }
 
 // ── Visual: printer error card ───────────────────────────────────────────────

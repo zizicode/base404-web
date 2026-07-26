@@ -37,6 +37,15 @@ export default function TrustStats({ dict, apiStats }: Props) {
   return (
     <section className={styles.section} aria-labelledby="stats-heading">
       <h2 id="stats-heading" className="sr-only">{dict.guidesLabel}</h2>
+      
+      {/* Círculos decorativos de fondo */}
+      <div className={styles.circles} aria-hidden="true">
+        <div className={styles.circle}></div>
+        <div className={`${styles.circle} ${styles.circle1}`}></div>
+        <div className={`${styles.circle} ${styles.circle2}`}></div>
+        <div className={`${styles.circle} ${styles.circle3}`}></div>
+      </div>
+
       <div className="container">
         <ul className={styles.grid} role="list">
           {stats.map(({ value, label }, i) => {
@@ -44,7 +53,7 @@ export default function TrustStats({ dict, apiStats }: Props) {
             return (
               <li key={label} className={styles.item}>
                 <span className={styles.iconWrap} aria-hidden="true">
-                  <Icon size={24} />
+                  <Icon size={28} />
                 </span>
                 <strong className={styles.value}>{value}</strong>
                 <span className={styles.label}>{label}</span>

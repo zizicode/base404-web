@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Printer } from 'lucide-react';
+import { Search, Wrench, BookOpen } from 'lucide-react';
 import type { Locale } from '@/lib/i18n';
 import type { Dictionary } from '@/dictionaries/dictionaries';
 import type { ErrorsListItem } from '@/lib/api/types';
@@ -34,29 +34,43 @@ export default function Hero({ locale, dict, popularGuides }: Props) {
     <section className={styles.hero} aria-labelledby="hero-heading">
       <div className={styles.container}>
         <div className={styles.content}>
+          {/* Eyebrow con badge */}
           <div className={styles.eyebrow}>
-            <span className="badge badge--primary">{dict.eyebrow}</span>
+            <span className={styles.badge}>
+              <BookOpen size={16} />
+              {dict.eyebrow}
+            </span>
           </div>
 
+          {/* Heading principal optimizado para SEO */}
           <h1 id="hero-heading" className={styles.heading}>
-            {dict.heading}{' '}
+            {dict.heading}
             <span className={styles.headingAccent}>{dict.headingAccent}</span>
-            {dict.headingEnd}
+            <span className={styles.headingEnd}>{dict.headingEnd}</span>
           </h1>
 
+          {/* Subheading con palabras clave */}
           <p className={styles.subheading}>{dict.subheading}</p>
 
+          {/* Buscador principal */}
           <div className={styles.searchWrap}>
-            <SearchOverlay
-              locale={locale}
-              placeholder={dict.searchPlaceholder}
-              searchLabel={dict.searchAriaLabel}
-            />
+            <div className={styles.searchBox}>
+              <Search size={20} className={styles.searchIcon} />
+              <SearchOverlay
+                locale={locale}
+                placeholder={dict.searchPlaceholder}
+                searchLabel={dict.searchAriaLabel}
+              />
+            </div>
           </div>
 
+          {/* Códigos populares mejorados */}
           {codes.length > 0 && (
             <div className={styles.chips} role="list" aria-label={dict.popular}>
-              <span className={styles.chipsLabel}>{dict.popular}</span>
+              <span className={styles.chipsLabel}>
+                <Wrench size={14} />
+                {dict.popular}
+              </span>
               <div className={styles.chipsTrack}>
                 {codes.map((code) => (
                   <Link
@@ -71,31 +85,28 @@ export default function Hero({ locale, dict, popularGuides }: Props) {
               </div>
             </div>
           )}
-        </div>
 
-        <div className={styles.visual} aria-hidden="true">
-          <div className={styles.printerCard}>
-            <div className={styles.printerHeader}>
-              <span className={styles.printerIcon}>
-                <Printer size={42} strokeWidth={1.8} />
-              </span>
-              <span className={styles.printerBrand}>HP</span>
+          {/* Trust indicators */}
+          <div className={styles.trustIndicators}>
+            <div className={styles.trustItem}>
+              <span className={styles.trustIcon}>✓</span>
+              <span>Gratis</span>
             </div>
-
-            <div className={styles.printerBody}>
-              <span className={styles.errorLabel}>Código de error</span>
-              <span className={styles.errorCode}>E0</span>
+            <div className={styles.trustItem}>
+              <span className={styles.trustIcon}>✓</span>
+              <span>Sin registro</span>
             </div>
-
-            <div className={styles.printerSteps}>
-              <span className={styles.stepLine} />
-              <span className={styles.stepLine} />
-              <span className={styles.stepLineShort} />
+            <div className={styles.trustItem}>
+              <span className={styles.trustIcon}>✓</span>
+              <span>Guías paso a paso</span>
             </div>
           </div>
         </div>
+
+        {/* Visual removido - diseño más limpio */}
       </div>
 
+      {/* Elementos decorativos de fondo */}
       <div className={styles.bgGrid} aria-hidden="true" />
       <div className={styles.bgShape1} aria-hidden="true" />
       <div className={styles.bgShape2} aria-hidden="true" />

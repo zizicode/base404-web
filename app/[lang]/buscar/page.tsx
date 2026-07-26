@@ -19,16 +19,43 @@ export async function generateMetadata({ params, searchParams }: PageProps): Pro
   const { lang } = await params;
   const sp = await searchParams;
   const hasFilters = sp.q || sp.brand || sp.category;
-  const title = lang === 'es' ? 'Buscar errores' : 'Search errors';
+  const locale = lang as Locale;
+  const dict = await getDictionary(locale);
+  const d = dict.browse;
+
+  const title = lang === 'es' ? 'Buscar errores de impresoras | Vimazdev' : 'Search printer errors | Vimazdev';
+  const description = lang === 'es'
+    ? 'Buscá códigos de error de impresoras HP, Epson, Brother, Canon y más. Encontrá soluciones paso a paso para tu impresora o escáner.'
+    : 'Search printer error codes for HP, Epson, Brother, Canon and more. Find step-by-step solutions for your printer or scanner.';
 
   return {
     title,
-    description:
-      lang === 'es'
-        ? 'Buscá códigos de error de impresoras por marca, modelo o palabra clave.'
-        : 'Search printer error codes by brand, model or keyword.',
-    alternates: { canonical: `/${lang}/buscar` },
-    ...(hasFilters && { robots: { index: false, follow: true } }),
+    description,
+    alternates: { canonical: `/${locale}/buscar` },
+    robots: hasFilters ? { index: false, follow: true } : { index: true, follow: true },
+    openGraph: {
+      type: 'website',
+      url: `/${locale}/buscar`,
+      siteName: 'Vimazdev',
+      locale: locale === 'es' ? 'es_ES' : 'en_US',
+      alternateLocale: [locale === 'es' ? 'en_US' : 'es_ES'],
+      title,
+      description,
+      images: [
+        {
+          url: '/og.png',
+          width: 1200,
+          height: 630,
+          alt: 'Vimazdev — Búsqueda de errores de impresoras',
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+      images: ['/og.png'],
+    },
   };
 }
 
@@ -48,12 +75,12 @@ export default async function BuscarPage({ params, searchParams }: PageProps) {
           brand:    sp.brand    || undefined,
           category: sp.category || undefined,
           locale,
-          limit: 50,
+          limit: 200,
         })
       : getErrors({
           sort: (sp.sort === 'popular' ? 'popular' : 'recent'),
           locale,
-          limit: 50,
+          limit: 200,
         }).then((r) => r.items as AnyErrorItem[]),
   ]);
 

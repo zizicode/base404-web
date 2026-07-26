@@ -13,11 +13,8 @@ import FinalCta from "@/components/home/FinalCta/FinalCta";
 import { getDictionary } from "@/dictionaries/dictionaries";
 import { isValidLocale, type Locale } from "@/lib/i18n";
 
+export const dynamic = 'force-dynamic';
 export const revalidate = 3600;
-
-export function generateStaticParams() {
-  return [{ lang: 'es' }, { lang: 'en' }];
-}
 
 const HOME_COPY: Record<Locale, { title: string; description: string; ogLocale: string; altLocale: string }> = {
   es: {

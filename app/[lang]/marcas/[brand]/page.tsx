@@ -19,14 +19,45 @@ export const revalidate = 0;
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { lang, brand } = await params;
   if (!isValidLocale(lang)) return {};
+  const locale = lang as Locale;
   const [dict, brandData] = await Promise.all([
-    getDictionary(lang as Locale),
+    getDictionary(locale),
     getBrandBySlug(brand),
   ]);
   if (!brandData) return {};
+  
+  const title = dict.browse.brandTitle.replace('{{name}}', brandData.name);
+  const description = lang === 'es'
+    ? `Guías de errores de impresoras ${brandData.name}. Soluciones paso a paso para códigos de error de impresoras ${brandData.name}.`
+    : `${brandData.name} printer error guides. Step-by-step solutions for ${brandData.name} printer error codes.`;
+
   return {
-    title: dict.browse.brandTitle.replace('{{name}}', brandData.name),
-    alternates: { canonical: `/${lang}/marcas/${brandData.slug}` },
+    title,
+    description,
+    alternates: { canonical: `/${locale}/marcas/${brandData.slug}` },
+    openGraph: {
+      type: 'website',
+      url: `/${locale}/marcas/${brandData.slug}`,
+      siteName: 'Vimazdev',
+      locale: locale === 'es' ? 'es_ES' : 'en_US',
+      alternateLocale: [locale === 'es' ? 'en_US' : 'es_ES'],
+      title,
+      description,
+      images: [
+        {
+          url: '/og.png',
+          width: 1200,
+          height: 630,
+          alt: `Vimazdev — Errores de ${brandData.name}`,
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+      images: ['/og.png'],
+    },
   };
 }
 
@@ -49,7 +80,7 @@ export default async function BrandPage({ params }: PageProps) {
   ]);
 
   const resolvedBrand = (brandData ?? { slug: brand, name: brand, logo_url: null, id: 0 }) as Brand;
-  const initialResults = (await getBrandErrors(brand, locale, 50).catch(() => [])) ?? [];
+  const initialResults = (await getBrandErrors(brand, locale, 200).catch(() => [])) ?? [];
 
   const d = dict.browse;
   const categoryNames = Object.fromEntries(

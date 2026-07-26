@@ -12,12 +12,62 @@ const META: Record<Locale, Metadata> = {
     description:
       'Conocé cómo Vimazdev recopila, usa y protege tu información. Información sobre cookies, Google Analytics, Google AdSense y el Programa de Afiliados de Amazon.',
     alternates: { canonical: '/es/privacidad' },
+    openGraph: {
+      type: 'website',
+      url: '/es/privacidad',
+      siteName: 'Vimazdev',
+      locale: 'es_ES',
+      alternateLocale: ['en_US'],
+      title: 'Política de Privacidad | Vimazdev',
+      description:
+        'Conocé cómo Vimazdev recopila, usa y protege tu información. Información sobre cookies, Google Analytics, Google AdSense y el Programa de Afiliados de Amazon.',
+      images: [
+        {
+          url: '/og.png',
+          width: 1200,
+          height: 630,
+          alt: 'Vimazdev — Política de Privacidad',
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: 'Política de Privacidad | Vimazdev',
+      description:
+        'Conocé cómo Vimazdev recopila, usa y protege tu información.',
+      images: ['/og.png'],
+    },
   },
   en: {
     title: 'Privacy Policy | Vimazdev',
     description:
       'Learn how Vimazdev collects, uses, and protects your information. Details about cookies, Google Analytics, Google AdSense, and the Amazon Associates Program.',
     alternates: { canonical: '/en/privacidad' },
+    openGraph: {
+      type: 'website',
+      url: '/en/privacidad',
+      siteName: 'Vimazdev',
+      locale: 'en_US',
+      alternateLocale: ['es_ES'],
+      title: 'Privacy Policy | Vimazdev',
+      description:
+        'Learn how Vimazdev collects, uses, and protects your information. Details about cookies, Google Analytics, Google AdSense, and the Amazon Associates Program.',
+      images: [
+        {
+          url: '/og.png',
+          width: 1200,
+          height: 630,
+          alt: 'Vimazdev — Privacy Policy',
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: 'Privacy Policy | Vimazdev',
+      description:
+        'Learn how Vimazdev collects, uses, and protects your information.',
+      images: ['/og.png'],
+    },
   },
 };
 
@@ -26,9 +76,7 @@ const TITLES: Record<Locale, string> = {
   en: 'Privacy Policy',
 };
 
-export function generateStaticParams() {
-  return [{ lang: 'es' }, { lang: 'en' }];
-}
+export const dynamic = 'force-dynamic';
 
 export async function generateMetadata({
   params,

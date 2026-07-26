@@ -13,16 +13,16 @@
     "logoAlt": "Vimazdev — Inicio"
   },
   "hero": {
-    "eyebrow": "+12 000 guías disponibles",
-    "heading": "¿Tu impresora o escáner muestra un",
-    "headingAccent": "código de error",
-    "headingEnd": "?",
-    "subheading": "Encuentra la causa y la solución en segundos. Guías paso a paso para impresoras láser, de tinta, tanques continuos, térmicas y escáneres de las marcas más populares.",
-    "searchLabel": "Buscar código de error (ej. 4C Epson L3210)",
+    "eyebrow": "+12 000 guías de errores de impresoras",
+    "heading": "Soluciona códigos de error de impresoras",
+    "headingAccent": "HP, Epson, Brother, Canon",
+    "headingEnd": "y más",
+    "subheading": "Guía completa de códigos de error de impresoras y escáneres. Encuentra soluciones paso a paso para errores de impresoras láser, de tinta, tanques continuos, matriciales y térmicas. Diagnóstico rápido y gratuito.",
+    "searchLabel": "Buscar código de error de impresora",
     "searchAriaLabel": "Buscar código de error",
-    "searchPlaceholder": "Ej: 0x97",
+    "searchPlaceholder": "Ej: 0x97, 4C, E0, P02...",
     "searchBtn": "Buscar",
-    "popular": "Populares:"
+    "popular": "Códigos populares:"
   },
   "brands": {
     "title": "Buscar por marca",
@@ -144,5 +144,26 @@
       "Zebra GK420d",
       "Honeywell PC42t Desktop"
     ]
+  },
+  "contact": {
+    "title": "Contacto",
+    "subtitle": "¿Tenés dudas o sugerencias? Escribinos y te respondemos a la brevedad.",
+    "nameLabel": "Nombre",
+    "namePlaceholder": "Tu nombre",
+    "emailLabel": "Correo electrónico",
+    "emailPlaceholder": "tu@email.com",
+    "subjectLabel": "Asunto",
+    "subjectPlaceholder": "¿Sobre qué querés escribir?",
+    "messageLabel": "Mensaje",
+    "messagePlaceholder": "Contanos tu consulta o sugerencia…",
+    "submitBtn": "Enviar mensaje",
+    "successTitle": "¡Mensaje enviado!",
+    "successBody": "Gracias por contactarnos. Te respondemos a la brevedad.",
+    "errorTitle": "Error",
+    "errorBody": "No se pudo enviar el mensaje. Por favor, intentá de nuevo más tarde."
+  },
+  "notFound": {
+    "title": "Página no encontrada",
+    "description": "La página que buscas no existe o ha sido eliminada. Volvé al inicio y buscá el código de error que necesitás."
   }
 }

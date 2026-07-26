@@ -22,7 +22,7 @@ export async function getBrandBySlug(slug: string): Promise<Brand | null> {
 export async function getBrandErrors(
   slug: string,
   locale = "es",
-  limit = 50
+  limit = 200
 ): Promise<ErrorsListItem[]> {
   try {
     const { data } = await apiClient.get<ApiEnvelope<{ items: ErrorsListItem[] }>>(

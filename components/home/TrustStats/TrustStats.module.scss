@@ -2,42 +2,125 @@
 @use "../../../styles/mixins" as m;
 
 .section {
-  padding: v.$space-12 0;
-  background-color: v.$color-primary;
+  position: relative;
+  padding: v.$space-16 0;
+  background-color: v.$color-background;
+  overflow: hidden;
 }
 
 .grid {
+  position: relative;
+  z-index: 1;
   display: grid;
   grid-template-columns: 1fr;
   gap: v.$space-8;
   text-align: center;
+  max-width: 1000px;
+  margin: 0 auto;
 
-  @include m.bp(md) { grid-template-columns: repeat(3, 1fr); }
+  @include m.bp(sm) { grid-template-columns: repeat(3, 1fr); gap: v.$space-6; }
 }
 
 .item {
-  @include m.flex(column, center, center, v.$space-3);
+  @include m.flex(column, center, center, v.$space-4);
+  padding: v.$space-8 v.$space-4;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  border-radius: v.$radius-xl;
+  border: 1px solid rgba(v.$color-primary, 0.08);
+  box-shadow: 
+    0 4px 16px rgba(37, 99, 235, 0.06),
+    0 1px 3px rgba(0, 0, 0, 0.04);
+  transition: all v.$transition-base;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, v.$color-primary 0%, #3b82f6 100%);
+    opacity: 0;
+    transition: opacity v.$transition-base;
+  }
+
+  &:hover {
+    transform: translateY(-6px);
+    box-shadow: 
+      0 12px 32px rgba(37, 99, 235, 0.12),
+      0 4px 8px rgba(0, 0, 0, 0.06);
+    
+    &::before {
+      opacity: 1;
+    }
+  }
 }
 
 .iconWrap {
   @include m.flex(row, center, center, 0);
-  width: 52px;
-  height: 52px;
-  border-radius: v.$radius-lg;
-  background-color: rgba(v.$color-primary-foreground, 0.15);
-  color: v.$color-primary-foreground;
+  width: 72px;
+  height: 72px;
+  border-radius: v.$radius-xl;
+  background: linear-gradient(135deg, v.$color-primary-soft 0%, rgba(37, 99, 235, 0.08) 100%);
+  color: v.$color-primary;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.1);
+  transition: all v.$transition-base;
+
+  .item:hover & {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(37, 99, 235, 0.15);
+  }
 }
 
 .value {
-  font-size: v.$text-4xl;
+  font-size: v.$text-5xl;
   font-weight: v.$font-bold;
-  color: v.$color-primary-foreground;
-  letter-spacing: -0.03em;
+  color: v.$color-foreground;
+  letter-spacing: -0.04em;
   line-height: v.$leading-tight;
+  background: linear-gradient(135deg, v.$color-primary 0%, #1d4ed8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .label {
-  font-size: v.$text-sm;
-  color: rgba(v.$color-primary-foreground, 0.75);
+  font-size: v.$text-base;
+  color: v.$color-muted-foreground;
   font-weight: v.$font-medium;
+  letter-spacing: 0.01em;
+  line-height: v.$leading-relaxed;
+}
+
+@include m.bp(sm) {
+  .section {
+    padding: v.$space-12 0;
+  }
+
+  .value {
+    font-size: v.$text-4xl;
+  }
+
+  .iconWrap {
+    width: 64px;
+    height: 64px;
+  }
+}
+
+@include m.bp(md) {
+  .section {
+    padding: v.$space-16 0;
+  }
+
+  .value {
+    font-size: v.$text-5xl;
+  }
+
+  .iconWrap {
+    width: 72px;
+    height: 72px;
+  }
 }

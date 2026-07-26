@@ -19,14 +19,45 @@ export const revalidate = 0;
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { lang, category } = await params;
   if (!isValidLocale(lang)) return {};
+  const locale = lang as Locale;
   const [dict, catData] = await Promise.all([
-    getDictionary(lang as Locale),
-    getCategoryBySlug(category, lang),
+    getDictionary(locale),
+    getCategoryBySlug(category, locale),
   ]);
   if (!catData) return {};
+  
+  const title = dict.browse.categoryTitle.replace('{{name}}', catData.name);
+  const description = lang === 'es'
+    ? `Guías de errores de ${catData.name}. Soluciones paso a paso para códigos de error de impresoras y escáneres ${catData.name}.`
+    : `${catData.name} error guides. Step-by-step solutions for ${catData.name} printer and scanner error codes.`;
+
   return {
-    title: dict.browse.categoryTitle.replace('{{name}}', catData.name),
-    alternates: { canonical: `/${lang}/categorias/${catData.slug}` },
+    title,
+    description,
+    alternates: { canonical: `/${locale}/categorias/${catData.slug}` },
+    openGraph: {
+      type: 'website',
+      url: `/${locale}/categorias/${catData.slug}`,
+      siteName: 'Vimazdev',
+      locale: locale === 'es' ? 'es_ES' : 'en_US',
+      alternateLocale: [locale === 'es' ? 'en_US' : 'es_ES'],
+      title,
+      description,
+      images: [
+        {
+          url: '/og.png',
+          width: 1200,
+          height: 630,
+          alt: `Vimazdev — Errores de ${catData.name}`,
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+      images: ['/og.png'],
+    },
   };
 }
 
@@ -49,7 +80,7 @@ export default async function CategoryPage({ params }: PageProps) {
   ]);
 
   const resolvedCategory = (catData ?? { slug: category, name: category, id: 0, deviceType: '', icon: '' }) as Category;
-  const initialResults = (await getCategoryErrors(category, locale, 50).catch(() => [])) ?? [];
+  const initialResults = (await getCategoryErrors(category, locale, 200).catch(() => [])) ?? [];
 
   const d = dict.browse;
   const categoryNames = Object.fromEntries(

@@ -26,7 +26,7 @@ export async function getCategoryBySlug(slug: string, locale = "es"): Promise<Ca
 export async function getCategoryErrors(
   slug: string,
   locale = "es",
-  limit = 50
+  limit = 200
 ): Promise<ErrorsListItem[]> {
   try {
     const { data } = await apiClient.get<ApiEnvelope<{ items: ErrorsListItem[] }>>(

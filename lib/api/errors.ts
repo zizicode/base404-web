@@ -70,7 +70,7 @@ export async function searchErrors(
     const q = params.q?.trim() ?? "";
     const apiParams: Record<string, string | number> = {
       locale: params.locale ?? "es",
-      limit:  params.limit  ?? 50,
+      limit:  params.limit  ?? 200,
     };
     if (q.length >= 2)   apiParams.q        = q;
     if (params.brand)    apiParams.brand     = params.brand;
