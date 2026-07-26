@@ -196,17 +196,19 @@
   font-weight: v.$font-medium;
 }
 
-.trustIcon {
+.trustNumber {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 20px;
-  height: 20px;
+  width: 24px;
+  height: 24px;
   border-radius: 50%;
-  background-color: v.$color-success;
-  color: #ffffff;
-  font-size: 12px;
+  border: 2px solid v.$color-primary;
+  background-color: transparent;
+  color: v.$color-primary;
+  font-size: v.$text-xs;
   font-weight: v.$font-bold;
+  line-height: 1;
 }
 
 // ── Visual: printer error card ───────────────────────────────────────────────

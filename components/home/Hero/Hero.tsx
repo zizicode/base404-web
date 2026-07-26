@@ -89,16 +89,16 @@ export default function Hero({ locale, dict, popularGuides }: Props) {
           {/* Trust indicators */}
           <div className={styles.trustIndicators}>
             <div className={styles.trustItem}>
-              <span className={styles.trustIcon}>✓</span>
-              <span>Gratis</span>
+              <span className={styles.trustNumber}>1</span>
+              <span>{dict.trust1}</span>
             </div>
             <div className={styles.trustItem}>
-              <span className={styles.trustIcon}>✓</span>
-              <span>Sin registro</span>
+              <span className={styles.trustNumber}>2</span>
+              <span>{dict.trust2}</span>
             </div>
             <div className={styles.trustItem}>
-              <span className={styles.trustIcon}>✓</span>
-              <span>Guías paso a paso</span>
+              <span className={styles.trustNumber}>3</span>
+              <span>{dict.trust3}</span>
             </div>
           </div>
         </div>

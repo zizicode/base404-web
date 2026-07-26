@@ -13,16 +13,19 @@
     "logoAlt": "Vimazdev — Home"
   },
   "hero": {
-    "eyebrow": "+12,000 printer error code guides",
+    "eyebrow": "+12,000 printer error guides",
     "heading": "Fix printer error codes",
     "headingAccent": "HP, Epson, Brother, Canon",
     "headingEnd": "and more",
-    "subheading": "Complete guide to printer and scanner error codes. Find step-by-step solutions for laser, inkjet, continuous tank, dot matrix, and thermal printer errors. Fast and free diagnostic.",
+    "subheading": "Complete guide to printer and scanner error codes. Find step-by-step solutions for laser, ink, continuous tank, dot matrix, and thermal printer errors. Fast and free diagnosis.",
     "searchLabel": "Search printer error code",
     "searchAriaLabel": "Search error code",
-    "searchPlaceholder": "e.g., 0x97, 4C, E0, P02...",
+    "searchPlaceholder": "Ex: 0x97, 4C, E0, P02...",
     "searchBtn": "Search",
-    "popular": "Popular codes:"
+    "popular": "Popular codes:",
+    "trust1": "Free",
+    "trust2": "No registration",
+    "trust3": "Step-by-step guides"
   },
   "brands": {
     "title": "Browse by Brand",

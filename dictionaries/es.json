@@ -22,7 +22,10 @@
     "searchAriaLabel": "Buscar código de error",
     "searchPlaceholder": "Ej: 0x97, 4C, E0, P02...",
     "searchBtn": "Buscar",
-    "popular": "Códigos populares:"
+    "popular": "Códigos populares:",
+    "trust1": "Gratis",
+    "trust2": "Sin registro",
+    "trust3": "Guías paso a paso"
   },
   "brands": {
     "title": "Buscar por marca",
