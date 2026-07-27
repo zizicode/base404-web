@@ -16,6 +16,12 @@ import { isValidLocale, type Locale } from "@/lib/i18n";
 export const dynamic = 'force-dynamic';
 export const revalidate = 3600;
 
+const rawSiteUrl = process.env.NEXT_PUBLIC_SITE_URL?.trim() || "https://vimazdev.com";
+const SITE_URL = (rawSiteUrl.startsWith("http://") || rawSiteUrl.startsWith("https://")
+  ? rawSiteUrl
+  : `https://${rawSiteUrl}`
+).replace(/\/$/, "");
+
 const HOME_COPY: Record<Locale, { title: string; description: string; ogLocale: string; altLocale: string }> = {
   es: {
     title: "Vimazdev — Soluciona Códigos de Error de Impresoras",
@@ -73,6 +79,35 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
   if (!isValidLocale(lang)) notFound();
 
   const locale = lang as Locale;
+  const copy = HOME_COPY[locale];
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": `${SITE_URL}/#organization`,
+        name: "Vimazdev",
+        url: SITE_URL,
+        logo: {
+          "@type": "ImageObject",
+          url: `${SITE_URL}/android-chrome-512x512.png`,
+          width: 512,
+          height: 512,
+        },
+      },
+      {
+        "@type": "WebSite",
+        "@id": `${SITE_URL}/#website`,
+        name: "Vimazdev",
+        url: SITE_URL,
+        description: copy.description,
+        inLanguage: locale,
+        publisher: {
+          "@id": `${SITE_URL}/#organization`,
+        },
+      },
+    ],
+  };
 
   const [dict, brands, categories, popularResult, apiStats] = await Promise.all([
     getDictionary(locale),
@@ -84,13 +119,19 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
   const popularGuides = popularResult.items;
 
   return (
-    <main>
-      <Hero           locale={locale} dict={dict.hero} popularGuides={popularGuides} />
-      <TrustStats     dict={dict.trustStats} apiStats={apiStats} />
-      <BrandsGrid     locale={locale} dict={dict.brands} brands={brands} />
-      <CategoriesGrid locale={locale} dict={dict.categories} categories={categories} />
-      <PopularGuides  locale={locale} dict={dict.popularGuides} guides={popularGuides} />
-      <FinalCta       locale={locale} dict={dict.finalCta} />
-    </main>
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }}
+      />
+      <main>
+        <Hero           locale={locale} dict={dict.hero} popularGuides={popularGuides} />
+        <TrustStats     dict={dict.trustStats} apiStats={apiStats} />
+        <BrandsGrid     locale={locale} dict={dict.brands} brands={brands} />
+        <CategoriesGrid locale={locale} dict={dict.categories} categories={categories} />
+        <PopularGuides  locale={locale} dict={dict.popularGuides} guides={popularGuides} />
+        <FinalCta       locale={locale} dict={dict.finalCta} />
+      </main>
+    </>
   );
 }

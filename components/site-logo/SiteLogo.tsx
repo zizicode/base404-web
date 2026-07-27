@@ -13,7 +13,7 @@ export default function SiteLogo({ href, ariaLabel = "Vimazdev — Inicio" }: Pr
       <span className={styles.logoIcon} aria-hidden="true">
         <Image
           src="/favicon-32x32.png"
-          alt=""
+          alt="vimazdev logo"
           width={32}
           height={32}
           className={styles.logoImage}
