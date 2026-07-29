@@ -18,6 +18,7 @@ export interface Category {
   slug: string;
   deviceType: string;
   icon: string;
+  brandId?: number | null;
 }
 
 export interface SuggestItem {

@@ -4,6 +4,7 @@ import { getErrors } from "@/lib/api/errorsList";
 import { getBrands } from "@/lib/api/brands";
 import { getCategories } from "@/lib/api/categories";
 import { getStats } from "@/lib/api/stats";
+import type { Category } from "@/lib/api/types";
 import Hero from "@/components/home/Hero/Hero";
 import BrandsGrid from "@/components/home/BrandsGrid/BrandsGrid";
 import CategoriesGrid from "@/components/home/CategoriesGrid/CategoriesGrid";
@@ -21,6 +22,31 @@ const SITE_URL = (rawSiteUrl.startsWith("http://") || rawSiteUrl.startsWith("htt
   ? rawSiteUrl
   : `https://${rawSiteUrl}`
 ).replace(/\/$/, "");
+
+function shuffle<T>(arr: T[]): T[] {
+  const copy = [...arr];
+  for (let i = copy.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [copy[i], copy[j]] = [copy[j], copy[i]];
+  }
+  return copy;
+}
+
+function getDistinctBrandCategories(categories: Category[], max = 50): Category[] {
+  const seen = new Set<string | number>();
+  const result: Category[] = [];
+
+  for (const cat of shuffle(categories)) {
+    const key = cat.brandId ?? cat.slug;
+    if (!seen.has(key)) {
+      seen.add(key);
+      result.push(cat);
+      if (result.length >= max) break;
+    }
+  }
+
+  return result;
+}
 
 const HOME_COPY: Record<Locale, { title: string; description: string; ogLocale: string; altLocale: string }> = {
   es: {
@@ -112,7 +138,7 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
   const [dict, brands, categories, popularResult, apiStats] = await Promise.all([
     getDictionary(locale),
     getBrands(),
-    getCategories(locale),
+    getCategories(locale).then(getDistinctBrandCategories),
     getErrors({ sort: 'popular', locale, limit: 6 }),
     getStats(),
   ]);
