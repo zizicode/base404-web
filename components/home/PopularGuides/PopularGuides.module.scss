@@ -30,19 +30,47 @@
 }
 
 .grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: v.$space-4;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: v.$space-3;
 
-  @include m.bp(sm) { grid-template-columns: repeat(2, 1fr); }
-  @include m.bp(lg) { grid-template-columns: repeat(4, 1fr); }
+  > li {
+    flex: 1 1 calc(50% - #{v.$space-3} / 2);
+    max-width: calc(50% - #{v.$space-3} / 2);
+    min-width: 0;
+    display: flex;
+  }
+
+  @include m.bp(md) {
+    gap: v.$space-4;
+
+    > li {
+      flex: 1 1 calc(33.333% - #{v.$space-4} * 2 / 3);
+      max-width: calc(33.333% - #{v.$space-4} * 2 / 3);
+    }
+  }
+
+  @include m.bp(lg) {
+    > li {
+      flex: 1 1 calc(25% - #{v.$space-4} * 3 / 4);
+      max-width: calc(25% - #{v.$space-4} * 3 / 4);
+    }
+  }
 }
 
 .card {
-  @include m.flex(column, flex-start, flex-start, v.$space-3);
+  @include m.flex(column, flex-start, flex-start, v.$space-2);
+  width: 100%;
+  padding: v.$space-3;
   text-decoration: none;
   height: 100%;
   transition: box-shadow v.$transition-base, border-color v.$transition-base, transform v.$transition-fast;
+
+  @include m.bp(sm) {
+    gap: v.$space-3;
+    padding: v.$space-4;
+  }
 
   &:hover {
     border-color: v.$color-primary;
@@ -58,11 +86,33 @@
   width: 100%;
 }
 
-.views {
-  @include m.flex(row, flex-start, center, 3px);
-  font-size: v.$text-xs;
+.stats {
+  @include m.flex(row, flex-start, center, v.$space-1);
+}
+
+.stat {
+  @include m.flex(row, flex-start, center, 2px);
+  font-size: 10px;
   color: v.$color-muted-foreground;
   font-weight: v.$font-medium;
+  flex-shrink: 0;
+
+  @include m.bp(sm) {
+    font-size: v.$text-xs;
+    gap: 3px;
+  }
+}
+
+.statValue {
+  font-variant-numeric: tabular-nums;
+}
+
+.statLabel {
+  display: none;
+
+  @include m.bp(sm) {
+    display: inline;
+  }
 }
 
 .category {
@@ -72,16 +122,30 @@
 }
 
 .cardTitle {
-  font-size: v.$text-sm;
+  font-size: v.$text-xs;
   font-weight: v.$font-semibold;
   color: v.$color-foreground;
   line-height: v.$leading-snug;
   flex: 1;
+
+  @include m.bp(sm) {
+    font-size: v.$text-sm;
+  }
 }
 
 .cardMeta {
   @include m.flex(row, flex-start, center, v.$space-1);
+  color: v.$color-muted-foreground;
   margin-top: auto;
+}
+
+.model {
+  font-size: v.$text-xs;
+  color: v.$color-muted-foreground;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
 }
 
 .brand {
@@ -90,20 +154,3 @@
   color: v.$color-muted-foreground;
 }
 
-.model {
-  font-size: v.$text-xs;
-  color: v.$color-muted-foreground;
-}
-
-.cardStats {
-  @include m.flex(row, flex-start, center, v.$space-3);
-  padding-top: v.$space-3;
-  border-top: 1px solid v.$color-border;
-  width: 100%;
-}
-
-.stat {
-  @include m.flex(row, flex-start, center, v.$space-1);
-  font-size: v.$text-xs;
-  color: v.$color-muted-foreground;
-}

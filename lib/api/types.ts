@@ -46,6 +46,9 @@ export interface ErrorsListItem {
   errorCode: string;
   model: string | null;
   views: number;
+  votes?: number;
+  helpfulVotes?: number;
+  unhelpfulVotes?: number;
   updatedAt: string;
 }
 

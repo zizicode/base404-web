@@ -125,11 +125,20 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
         "@type": "WebSite",
         "@id": `${SITE_URL}/#website`,
         name: "Vimazdev",
+        alternateName: ["Vimazdev Printer Error Codes", "Vimazdev Errors"],
         url: SITE_URL,
         description: copy.description,
         inLanguage: locale,
         publisher: {
           "@id": `${SITE_URL}/#organization`,
+        },
+        potentialAction: {
+          "@type": "SearchAction",
+          target: {
+            "@type": "EntryPoint",
+            urlTemplate: `${SITE_URL}/${locale}/buscar?q={search_term_string}`,
+          },
+          "query-input": "required name=search_term_string",
         },
       },
     ],
@@ -139,7 +148,7 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
     getDictionary(locale),
     getBrands(),
     getCategories(locale).then(getDistinctBrandCategories),
-    getErrors({ sort: 'popular', locale, limit: 6 }),
+    getErrors({ sort: 'popular', locale, limit: 100000 }),
     getStats(),
   ]);
   const popularGuides = popularResult.items;
