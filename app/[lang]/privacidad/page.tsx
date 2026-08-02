@@ -5,13 +5,14 @@ import type { Metadata } from 'next';
 import { markdownToHtml } from '@/lib/markdownToHtml';
 import LegalPage from '@/components/legal/LegalPage';
 import { isValidLocale, type Locale } from '@/lib/i18n';
+import { getAlternates } from '@/lib/seo';
 
 const META: Record<Locale, Metadata> = {
   es: {
     title: 'Política de Privacidad | Vimazdev',
     description:
       'Conocé cómo Vimazdev recopila, usa y protege tu información. Información sobre cookies, Google Analytics, Google AdSense y el Programa de Afiliados de Amazon.',
-    alternates: { canonical: '/es/privacidad' },
+    alternates: getAlternates('/es/privacidad', 'es'),
     openGraph: {
       type: 'website',
       url: '/es/privacidad',
@@ -42,7 +43,7 @@ const META: Record<Locale, Metadata> = {
     title: 'Privacy Policy | Vimazdev',
     description:
       'Learn how Vimazdev collects, uses, and protects your information. Details about cookies, Google Analytics, Google AdSense, and the Amazon Associates Program.',
-    alternates: { canonical: '/en/privacidad' },
+    alternates: getAlternates('/en/privacidad', 'en'),
     openGraph: {
       type: 'website',
       url: '/en/privacidad',

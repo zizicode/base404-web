@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { getDictionary } from '@/dictionaries/dictionaries';
 import { isValidLocale, type Locale } from '@/lib/i18n';
+import { getAlternates } from '@/lib/seo';
 import ContactForm from './ContactForm';
 
 export async function generateMetadata({
@@ -20,9 +21,7 @@ export async function generateMetadata({
   return {
     title,
     description,
-    alternates: {
-      canonical: `/${locale}/contacto`,
-    },
+    alternates: getAlternates(`/${locale}/contacto`, locale),
     openGraph: {
       type: 'website',
       url: `/${locale}/contacto`,

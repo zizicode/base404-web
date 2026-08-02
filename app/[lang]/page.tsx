@@ -13,6 +13,7 @@ import TrustStats from "@/components/home/TrustStats/TrustStats";
 import FinalCta from "@/components/home/FinalCta/FinalCta";
 import { getDictionary } from "@/dictionaries/dictionaries";
 import { isValidLocale, type Locale } from "@/lib/i18n";
+import { getAlternates } from "@/lib/seo";
 
 export const dynamic = 'force-dynamic';
 export const revalidate = 3600;
@@ -77,13 +78,7 @@ export async function generateMetadata({
   return {
     title: copy.title,
     description: copy.description,
-    alternates: {
-      canonical: `/${locale}`,
-      languages: {
-        es: "/es",
-        en: "/en",
-      },
-    },
+    alternates: getAlternates(`/${locale}`, locale),
     openGraph: {
       type: "website",
       url: `/${locale}`,

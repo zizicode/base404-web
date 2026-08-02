@@ -3,6 +3,7 @@ import { Suspense } from 'react';
 import { notFound } from 'next/navigation';
 import { getDictionary } from '@/dictionaries/dictionaries';
 import { isValidLocale, type Locale } from '@/lib/i18n';
+import { getAlternates } from '@/lib/seo';
 import { searchErrors } from '@/lib/api/errors';
 import { getErrors } from '@/lib/api/errorsList';
 import type { AnyErrorItem } from '@/lib/api/types';
@@ -31,7 +32,7 @@ export async function generateMetadata({ params, searchParams }: PageProps): Pro
   return {
     title,
     description,
-    alternates: { canonical: `/${locale}/buscar` },
+    alternates: getAlternates(`/${locale}/buscar`, locale),
     robots: hasFilters ? { index: false, follow: true } : { index: true, follow: true },
     openGraph: {
       type: 'website',

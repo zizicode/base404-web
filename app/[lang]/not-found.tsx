@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { getDictionary } from "@/dictionaries/dictionaries";
 import { isValidLocale, type Locale } from "@/lib/i18n";
+import { getAlternates } from "@/lib/seo";
 import styles from "./not-found.module.scss";
 
 export const dynamic = 'force-dynamic';
@@ -25,7 +26,7 @@ export async function generateMetadata({
     title,
     description,
     robots: { index: false, follow: true },
-    alternates: { canonical: `/${locale}` },
+    alternates: getAlternates(`/${locale}`, locale),
     openGraph: {
       type: 'website',
       url: `/${locale}`,

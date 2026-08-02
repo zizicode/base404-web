@@ -4,6 +4,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { getDictionary } from '@/dictionaries/dictionaries';
 import { isValidLocale, type Locale } from '@/lib/i18n';
+import { getAlternates } from '@/lib/seo';
 import { getBrands } from '@/lib/api/brands';
 import BrowseHeader from '@/components/browse/BrowseHeader';
 import styles from './page.module.scss';
@@ -19,7 +20,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return {
     title: dict.browse.allBrandsTitle,
     description: dict.browse.allBrandsSubtitle,
-    alternates: { canonical: `/${locale}/marcas` },
+    alternates: getAlternates(`/${locale}/marcas`, locale),
   };
 }
 

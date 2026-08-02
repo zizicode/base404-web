@@ -30,9 +30,15 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     robots: error.seo.robots,
     alternates: {
       canonical: error.seo.canonicalUrl,
-      languages: Object.fromEntries(
-        error.hreflangAlternates.map(({ locale, url }) => [locale, url])
-      ),
+      languages: (() => {
+        const map = Object.fromEntries(
+          error.hreflangAlternates.map(({ locale, url }) => [locale, url])
+        ) as Record<string, string>;
+        if (!map["x-default"]) {
+          map["x-default"] = map["es"] ?? error.seo.canonicalUrl;
+        }
+        return map;
+      })(),
     },
     openGraph: {
       title: error.seo.og.title,

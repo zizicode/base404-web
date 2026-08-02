@@ -13,6 +13,7 @@ import {
 import type { LucideIcon } from 'lucide-react';
 import { getDictionary } from '@/dictionaries/dictionaries';
 import { isValidLocale, type Locale } from '@/lib/i18n';
+import { getAlternates } from '@/lib/seo';
 import { getCategories } from '@/lib/api/categories';
 import BrowseHeader from '@/components/browse/BrowseHeader';
 import styles from './page.module.scss';
@@ -52,7 +53,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return {
     title: dict.browse.allCategoriesTitle,
     description: dict.browse.allCategoriesSubtitle,
-    alternates: { canonical: `/${locale}/categorias` },
+    alternates: getAlternates(`/${locale}/categorias`, locale),
   };
 }
 

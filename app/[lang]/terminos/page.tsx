@@ -5,13 +5,14 @@ import type { Metadata } from 'next';
 import { markdownToHtml } from '@/lib/markdownToHtml';
 import LegalPage from '@/components/legal/LegalPage';
 import { isValidLocale, type Locale } from '@/lib/i18n';
+import { getAlternates } from '@/lib/seo';
 
 const META: Record<Locale, Metadata> = {
   es: {
     title: 'Términos y Condiciones | Vimazdev',
     description:
       'Términos y condiciones de uso de Vimazdev. Información sobre el uso del sitio, limitación de responsabilidad y derechos de propiedad intelectual.',
-    alternates: { canonical: '/es/terminos' },
+    alternates: getAlternates('/es/terminos', 'es'),
     openGraph: {
       type: 'website',
       url: '/es/terminos',
@@ -41,7 +42,7 @@ const META: Record<Locale, Metadata> = {
     title: 'Terms and Conditions | Vimazdev',
     description:
       'Terms and conditions of use for Vimazdev. Information about site usage, liability limitation, and intellectual property rights.',
-    alternates: { canonical: '/en/terminos' },
+    alternates: getAlternates('/en/terminos', 'en'),
     openGraph: {
       type: 'website',
       url: '/en/terminos',

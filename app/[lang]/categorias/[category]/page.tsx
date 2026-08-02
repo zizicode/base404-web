@@ -3,6 +3,7 @@ import { Suspense } from 'react';
 import { notFound } from 'next/navigation';
 import { getDictionary } from '@/dictionaries/dictionaries';
 import { isValidLocale, type Locale } from '@/lib/i18n';
+import { getAlternates } from '@/lib/seo';
 import { getCategoryBySlug, getCategoryErrors } from '@/lib/api/categories';
 import type { Category } from '@/lib/api/types';
 import BrowseHeader from '@/components/browse/BrowseHeader';
@@ -34,7 +35,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return {
     title,
     description,
-    alternates: { canonical: `/${locale}/categorias/${catData.slug}` },
+    alternates: getAlternates(`/${locale}/categorias/${catData.slug}`, locale),
     openGraph: {
       type: 'website',
       url: `/${locale}/categorias/${catData.slug}`,
