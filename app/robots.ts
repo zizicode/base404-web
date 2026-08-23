@@ -25,11 +25,7 @@ export default function robots(): MetadataRoute.Robots {
         ],
       },
     ],
-    sitemap: [
-      `${baseUrl}/sitemap.xml`,
-      `${baseUrl}/sitemap-es.xml`,
-      `${baseUrl}/sitemap-en.xml`,
-    ],
+    sitemap: `${baseUrl}/sitemap-index.xml`,
     host: baseUrl,
   };
 }

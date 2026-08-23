@@ -2,6 +2,18 @@ import type { Locale } from "./i18n";
 
 const DEFAULT_LOCALE: Locale = "es";
 
+export function getSiteUrl(): string {
+  const raw = process.env.NEXT_PUBLIC_SITE_URL?.trim();
+  if (!raw) return "https://vimazdev.com";
+  return raw.startsWith("http://") || raw.startsWith("https://") ? raw : `https://${raw}`;
+}
+
+export function buildCanonicalUrl(locale: Locale, path: string): string {
+  const siteUrl = getSiteUrl().replace(/\/$/, "");
+  const normalizedPath = path.startsWith("/") ? path : `/${path}`;
+  return `${siteUrl}/${locale}${normalizedPath}`.replace(/\/$/, "");
+}
+
 function getPathSuffix(canonical: string, locale: Locale): string {
   // Remove optional origin and optional locale prefix.
   let path = canonical;

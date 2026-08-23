@@ -147,6 +147,12 @@ export default function RootLayout({
             `,
           }}
         />
+        {/* Google AdSense */}
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4873617134006059"
+          crossOrigin="anonymous"
+        />
       </head>
       <body className={roboto.className} suppressHydrationWarning>
         {/* Google Tag Manager (noscript) */}

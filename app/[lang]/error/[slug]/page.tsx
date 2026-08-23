@@ -9,6 +9,7 @@ import {
 import { getErrorBySlug } from '@/lib/api/errors';
 import { getPreferredVideos } from '@/lib/api/videos';
 import { isValidLocale, type Locale } from '@/lib/i18n';
+import { buildCanonicalUrl } from '@/lib/seo';
 import { getDictionary } from '@/dictionaries/dictionaries';
 import ErrorVideoSelector from '@/components/error-video-selector/ErrorVideoSelector';
 import ErrorEngagement from '@/components/error-engagement/ErrorEngagement';
@@ -22,20 +23,25 @@ interface PageProps {
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { lang, slug } = await params;
   if (!isValidLocale(lang)) return {};
-  const error = await getErrorBySlug(slug, lang);
+  const locale = lang as Locale;
+  const error = await getErrorBySlug(slug, locale);
   if (!error) return {};
+  const canonicalUrl = error.seo.canonicalUrl?.trim() || buildCanonicalUrl(locale, `/error/${slug}`);
   return {
     title: error.seo.title,
     description: error.seo.metaDescription,
     robots: error.seo.robots,
     alternates: {
-      canonical: error.seo.canonicalUrl,
+      canonical: canonicalUrl,
       languages: (() => {
         const map = Object.fromEntries(
           error.hreflangAlternates.map(({ locale, url }) => [locale, url])
         ) as Record<string, string>;
+        if (!map[locale]) {
+          map[locale] = canonicalUrl;
+        }
         if (!map["x-default"]) {
-          map["x-default"] = map["es"] ?? error.seo.canonicalUrl;
+          map["x-default"] = map["es"] ?? canonicalUrl;
         }
         return map;
       })(),
